@@ -1,0 +1,48 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    tools:context="htr.happytourist.Fragment.CurrencyFragment"
+    >
+
+
+
+
+    <EditText
+        android:id="@+id/textIskValue"
+        android:hint="Enter"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/viewForeignValue"
+        android:hint="Value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:listSeparatorTextViewStyle"/>
+
+    <Button
+        android:id="@+id/btnCurrency"
+        android:text="Convert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerCurrency"
+        android:entries="@array/spinnerCurrencyShortName"
+        android:layout_toRightOf = "@+id/viewIskValue"/>
+
+
+</LinearLayout>
