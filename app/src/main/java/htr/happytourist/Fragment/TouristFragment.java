@@ -14,12 +14,14 @@ import android.widget.Button;
 
 import htr.happytourist.CurrencyActivity;
 import htr.happytourist.R;
+import htr.happytourist.UserActivity;
 
 
 public class TouristFragment extends Fragment {
 
 
     private Button mBtnCurrency;
+    private Button mBtnLogin;
 
     public TouristFragment() {
         // Required empty public constructor
@@ -40,17 +42,23 @@ public class TouristFragment extends Fragment {
 
 
         mBtnCurrency = (Button) v.findViewById(R.id.btnCurrency);
-
         mBtnCurrency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(v.getContext(), CurrencyActivity.class);
                 startActivityForResult(intent, 0);
 
            }
         });
 
+        mBtnLogin = (Button) v.findViewById(R.id.btnLogin);
+        mBtnLogin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(v.getContext(), UserActivity.class);
+                startActivityForResult(intent, 0);
+                }
+        });
 
 
 
