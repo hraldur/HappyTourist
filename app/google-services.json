@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_id": "happytourist-1252",
+    "project_number": "1055226156953",
+    "name": "HappyTourist"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055226156953:android:41769390964df9d3",
+        "client_id": "android:htr.happytourist",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "htr.happytourist",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055226156953-dgh44658t8mc8d6j87mgfo4l4sp6a3uo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "htr.happytourist",
+            "certificate_hash": "784AADD4DD1680CB62938EE7FB618B2B10333F4E"
+          }
+        },
+        {
+          "client_id": "1055226156953-j488qcpk2vpnlcrdsvjc8dfhbbgf0ce6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
