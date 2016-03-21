@@ -17,5 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CurrencyActivity"/>
+        <activity android:name=".EventActivity"/>
+        <activity android:name=".CinemaActivity"/>
+
     </application>
 </manifest>

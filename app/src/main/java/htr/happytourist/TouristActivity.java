@@ -10,8 +10,6 @@ package htr.happytourist;
 
 public class TouristActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +25,4 @@ public class TouristActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
     }
-
-
-
-
-
 }

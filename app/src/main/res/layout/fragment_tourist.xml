@@ -3,18 +3,26 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="htr.happytourist.Fragment.TouristFragment">
-
-
-    <TextView
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_gravity="center_horizontal|top">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:text="@string/hello_blank_fragment"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Currency Converter"
-        android:id="@+id/btnCurrency"
-        android:layout_gravity="center"/>
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Currency Converter"
+            android:id="@+id/btnCurrency"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Events"
+            android:id="@+id/btnEvents"
+            android:layout_gravity="center"/>
+    </TableLayout>
 </FrameLayout>

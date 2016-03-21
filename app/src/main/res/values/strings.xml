@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">HappyTourist</string>
 
+    <string name="events">Events</string>
     <string name="eventCinema">Cinema</string>
     <string name="eventConcert">Concert</string>
     <string name="eventSports">Sports</string>

@@ -2,7 +2,6 @@ package htr.happytourist;
 
 /**
  * Created by hlingunnlaugsdottir on 15/03/16.
- */
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,3 +19,4 @@ public class ConcertActivity extends AppCompatActivity {
         }
     }
 }
+*/
