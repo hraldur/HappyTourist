@@ -19,4 +19,11 @@
         android:id="@+id/btnLogin"
         android:layout_gravity="top"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map"
+        android:id="@+id/btnMap"
+        android:layout_gravity="center_horizontal|top"/>
+
 </FrameLayout>

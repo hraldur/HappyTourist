@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import htr.happytourist.CurrencyActivity;
+import htr.happytourist.MapsActivity;
 import htr.happytourist.R;
 import htr.happytourist.UserActivity;
 
@@ -22,6 +23,7 @@ public class TouristFragment extends Fragment {
 
     private Button mBtnCurrency;
     private Button mBtnLogin;
+    private Button mBtnMap;
 
     public TouristFragment() {
         // Required empty public constructor
@@ -61,7 +63,15 @@ public class TouristFragment extends Fragment {
         });
 
 
+        mBtnMap = (Button) v.findViewById(R.id.btnMap);
+        mBtnMap.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MapsActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
 
 
         return v;

@@ -6,18 +6,16 @@
     <string name="title_activity_currency">CurrencyActivity</string>
     <string name="action_settings">Settings</string>
     <string-array name="spinnerCurrencyShortName">
-    <item>USD</item>
-    <item>GBP</item>
-    <item>EUR</item>
-    <item>CAD</item>
-    <item>DKK</item>
-    <item>NOK</item>
-    <item>SEK</item>
-    <item>CHF</item>
-    <item>JPY</item>
+        <item>USD</item>
+        <item>GBP</item>
+        <item>EUR</item>
+        <item>CAD</item>
+        <item>DKK</item>
+        <item>NOK</item>
+        <item>SEK</item>
+        <item>CHF</item>
+        <item>JPY</item>
     </string-array>
-
-
 
 
     <!-- Sign-in status messages -->
@@ -61,4 +59,5 @@
     <!-- Server Client ID.  This should be a valid Web OAuth 2.0 Client ID obtained
          from https://console.developers.google.com/ -->
     <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
