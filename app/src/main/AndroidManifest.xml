@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".CurrencyActivity"/>
         <activity android:name=".EventActivity"/>
+        <activity android:name=".ConcertActivity"/>
         <activity android:name=".CinemaActivity"/>
-
+        <activity android:name=".SportsActivity"/>
     </application>
 </manifest>

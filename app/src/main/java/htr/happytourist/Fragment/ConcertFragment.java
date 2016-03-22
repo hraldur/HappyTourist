@@ -17,12 +17,6 @@ import htr.happytourist.Service.EventService;
 **/
 
 public class ConcertFragment extends Fragment {
-    private Concert mConcert;
-    private EventService mEventService;
-    EditText mConcertText;
-    TextView mTextView;
-
-    Button mBtnConcert;
 
     public ConcertFragment() {
 

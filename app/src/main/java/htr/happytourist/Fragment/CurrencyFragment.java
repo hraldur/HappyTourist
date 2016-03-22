@@ -67,7 +67,6 @@ public class CurrencyFragment extends Fragment {
 
                 mForeignValueView.setText(name);
 
-
             }
         });
 

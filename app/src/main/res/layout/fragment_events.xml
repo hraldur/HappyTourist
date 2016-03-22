@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:orientation="vertical"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="htr.happytourist.Fragment.EventFragment">
 
-            <Button
-                android:id="@+id/btnCinema"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/eventCinema"/>
+        <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|top">
 
-            <Button
-                android:id="@+id/btnConcerts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/eventConcert"/>
+                <Button
+                    android:id="@+id/btnCinema"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eventCinema"/>
 
-            <Button
-                android:id="@+id/btnSports"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/eventSports"/>
+                <Button
+                    android:id="@+id/btnConcerts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eventConcert"/>
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btnSports"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eventSports"/>
 
-        <TextView
-            android:id="@+id/viewEvents"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical">
 
-    </LinearLayout>
+                <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:scrollbars="horizontal">
 
-</LinearLayout>
+                    <TableLayout
+                        android:id="@+id/viewEvents"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"/>
+
+                </HorizontalScrollView>
+
+            </ScrollView>
+
+        </TableLayout>
+
+</FrameLayout>
