@@ -31,12 +31,18 @@
     android:id="@+id/phone"
     android:layout_below="@+id/address"
     android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating"
+        android:layout_below="@+id/phone"
+        android:layout_centerHorizontal="true"/>
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="Launch Places API Picker"
     android:id="@+id/pickerButton"
-    android:layout_below="@+id/phone"
+    android:layout_below="@+id/rating"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="50dp"/>
 

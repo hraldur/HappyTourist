@@ -30,6 +30,7 @@ public class MapsActivity extends AppCompatActivity {
     private TextView mAddress;
     private TextView mPhone;
     private TextView mAttribution;
+    private TextView mRating;
 
     private static final LatLngBounds BOUNDS_MOUNTAIN_VIEW = new LatLngBounds(
             new LatLng(64.1419422, -21.9268126), new LatLng(64.147610, -21.922090));
@@ -44,6 +45,7 @@ public class MapsActivity extends AppCompatActivity {
         mAddress = (TextView) findViewById(R.id.address);
         mPhone = (TextView) findViewById(R.id.phone);
         mAttribution = (TextView) findViewById(R.id.attributions);
+        mRating = (TextView) findViewById(R.id.rating);
 
         Button pickerButton = (Button) findViewById(R.id.pickerButton);
 
@@ -92,12 +94,24 @@ public class MapsActivity extends AppCompatActivity {
             CharSequence address = place.getAddress();
             CharSequence number = place.getPhoneNumber();
             CharSequence attribution = place.getAttributions();
+            float rating = place.getRating()*10;
+            String stringRating;
+            if(rating == -10.0){
+                stringRating = " ";
+            }
+            else {
+                stringRating = Float.toString(rating);
+            }
+
+
 
 
             mName.setText(name);
             mAddress.setText(address);
             mPhone.setText(number);
             mAttribution.setText(attribution);
+            mRating.setText(stringRating);
+            System.out.println(stringRating);
 
 
 
