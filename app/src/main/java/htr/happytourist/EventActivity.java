@@ -1,34 +1,23 @@
 package htr.happytourist;
 
-<<<<<<< HEAD
-        import android.os.StrictMode;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-
-
-        import htr.happytourist.Fragment.TouristFragment;
-=======
-
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
->>>>>>> master
 
-
+import htr.happytourist.Fragment.EventFragment;
 import htr.happytourist.Fragment.TouristFragment;
 
-public class TouristActivity extends AppCompatActivity {
-
-
-
+/**
+ * Created by hlingunnlaugsdottir on 20/03/16.
+ */
+public class EventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tourist);
-
+        setContentView(R.layout.activity_event);
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.menuContainer, new TouristFragment()).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.eventsContainer, new EventFragment()).commit();
         }
 
         if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -36,14 +25,4 @@ public class TouristActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
     }
-<<<<<<< HEAD
 }
-=======
-
-
-
-
-
-}
-
->>>>>>> master
