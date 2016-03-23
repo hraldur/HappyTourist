@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <resources>
+=======
+<resources>>
+>>>>>>> master
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -6,4 +10,8 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+<<<<<<< HEAD
 </resources>
+=======
+</resources>
+>>>>>>> master

@@ -5,7 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
+<<<<<<< HEAD
     tools:context="htr.happytourist.Fragment.CurrencyFragment">
+=======
+    tools:context="htr.happytourist.Fragment.CurrencyFragment"
+    >
+
+
+
+>>>>>>> master
 
     <EditText
         android:id="@+id/textIskValue"
@@ -30,7 +38,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
+<<<<<<< HEAD
         android:layout_marginRight="16dp"/>
+=======
+        android:layout_marginRight="16dp"
+        />
+>>>>>>> master
 
     <Spinner
         android:layout_width="match_parent"
@@ -38,4 +51,10 @@
         android:id="@+id/spinnerCurrency"
         android:entries="@array/spinnerCurrencyShortName"
         android:layout_toRightOf = "@+id/viewIskValue"/>
+<<<<<<< HEAD
 </LinearLayout>
+=======
+
+
+</LinearLayout>
+>>>>>>> master
