@@ -38,20 +38,11 @@ public class CurrencyFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_currency, container, false);
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> master
         mIskValueText = (EditText) v.findViewById(R.id.textIskValue);
         mForeignValueView = (TextView) v.findViewById(R.id.viewForeignValue);
         mSpinnerCurrency = (Spinner) v.findViewById(R.id.spinnerCurrency);
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> master
         mBtnCurrency = (Button) v.findViewById(R.id.btnCurrency);
         mBtnCurrency.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +68,6 @@ public class CurrencyFragment extends Fragment {
 
                 mForeignValueView.setText(name);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
             }
         });
 
@@ -89,8 +76,4 @@ public class CurrencyFragment extends Fragment {
     }
 
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

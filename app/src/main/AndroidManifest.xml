@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="htr.happytourist"
           xmlns:android="http://schemas.android.com/apk/res/android">
-<<<<<<< HEAD
-    <uses-permission android:name="android.permission.INTERNET"/>
-=======
+
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -18,14 +16,11 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    XHTML
 
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
->>>>>>> master
+
+
 
     <application
         android:allowBackup="true"
@@ -48,20 +43,18 @@
         <activity android:name=".TouristActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".CurrencyActivity"/>
+
         <activity android:name=".EventActivity"/>
         <activity android:name=".ConcertActivity"/>
         <activity android:name=".CinemaActivity"/>
         <activity android:name=".SportsActivity"/>
-=======
+
         <activity android:name=".UserActivity"/>
-        <activity android:name=".CurrencyActivity">
-        </activity>
+        <activity android:name=".CurrencyActivity"/>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -78,6 +71,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
         </activity>
->>>>>>> master
+
     </application>
 </manifest>

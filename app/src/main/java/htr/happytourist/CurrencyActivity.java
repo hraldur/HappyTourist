@@ -16,8 +16,6 @@ public class CurrencyActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().add(R.id.currencyContainer, new CurrencyFragment()).commit();
         }
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> master
+

@@ -1,21 +1,13 @@
 package htr.happytourist;
 
-<<<<<<< HEAD
+
         import android.os.StrictMode;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
 
 
         import htr.happytourist.Fragment.TouristFragment;
-=======
 
-import android.os.StrictMode;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
->>>>>>> master
-
-
-import htr.happytourist.Fragment.TouristFragment;
 
 public class TouristActivity extends AppCompatActivity {
 
@@ -36,14 +28,6 @@ public class TouristActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
     }
-<<<<<<< HEAD
-}
-=======
-
-
-
-
 
 }
 
->>>>>>> master

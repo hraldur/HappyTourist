@@ -67,13 +67,6 @@ public class CurrencyConverterService {
         return value;
     }
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> master
     public double calculateCurrency(CurrencyConverter currencyConverter) {
         double iskValue = currencyConverter.getIskValue();
         double value = currencyConverter.getValue();
@@ -91,8 +84,6 @@ public class CurrencyConverterService {
 
 
 
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> master
+
