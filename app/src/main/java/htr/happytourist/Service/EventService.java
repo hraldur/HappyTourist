@@ -18,6 +18,7 @@ import htr.happytourist.Events.Handball;
  */
 public class EventService {
 
+    //Method changes the data from Cinema[] to an ArrayList<Cinema>
     public static ArrayList<Cinema> getCinemaEvents() throws ParseException, IOException, JSONException {
         String a = "cinema";
         GetData data = new GetData(a);
@@ -27,6 +28,7 @@ public class EventService {
         return cinemaList;
     }
 
+    //Method changes the data from Concert[] to an ArrayList<Concert>
     public static ArrayList<Concert> getConcertsEvents() throws ParseException, IOException, JSONException {
         String a = "concerts";
         GetData data = new GetData(a);
@@ -36,6 +38,7 @@ public class EventService {
         return concertsList;
     }
 
+    //Method changes the data from Football[] to an ArrayList<Football>
     public static ArrayList<Football> getFootballEvents() throws ParseException, IOException, JSONException {
         String a = "football";
         GetData data = new GetData(a);
@@ -45,6 +48,7 @@ public class EventService {
         return fotboltiList;
     }
 
+    //Method changes the data from Handball[] to an ArrayList<Handball>
     public static ArrayList<Handball> getHandballEvents() throws ParseException, IOException, JSONException {
         String a = "handball";
         GetData data = new GetData(a);

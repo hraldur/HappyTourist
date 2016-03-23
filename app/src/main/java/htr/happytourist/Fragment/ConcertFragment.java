@@ -16,6 +16,9 @@ import htr.happytourist.Service.EventService;
  * Created by hlingunnlaugsdottir on 16/03/16.
 **/
 
+
+
+/*** !!! This class is not used yet !!! ***/
 public class ConcertFragment extends Fragment {
 
     public ConcertFragment() {

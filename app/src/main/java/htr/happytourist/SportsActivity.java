@@ -10,6 +10,7 @@ import htr.happytourist.R;
 /**
  * Created by hlingunnlaugsdottir on 22/03/16.
  */
+
 public class SportsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

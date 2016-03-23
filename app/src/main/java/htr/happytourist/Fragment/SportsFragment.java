@@ -46,12 +46,20 @@ public class SportsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_sports, container, false);
 
+        //The view that the sport events are displayed in
         mViewSportsEvents = (TableLayout) v.findViewById(R.id.viewSportsEvents);
-        //See football events
+
+        // Football button
         mBtnFootball = (Button) v.findViewById(R.id.btnFootball);
+
+        //Display football events
         mBtnFootball.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+
+                //First remove all views that already are present in the mViewSportsEvents view
+                mViewSportsEvents.removeAllViews();
+
                 mEventService = new EventService();
                 ArrayList<Football> footballArrayList = null;
                 try {
@@ -64,6 +72,7 @@ public class SportsFragment extends Fragment {
                     e.printStackTrace();
                 }
 
+                //Create a table row for all Football events and placing on the mViewSportsEvents TableView
                 for (int i = 0; i < footballArrayList.size(); i++) {
                     TableRow tr = new TableRow(v.getContext());
                     tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
@@ -97,11 +106,18 @@ public class SportsFragment extends Fragment {
             }
         });
 
-        //See handball events
+
+        // Handball button
         mBtnHandball = (Button) v.findViewById(R.id.btnHandball);
+
+        //Display handball events
         mBtnHandball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //First remove all views that already are present in the mViewSportsEvents view
+                mViewSportsEvents.removeAllViews();
+
                 mEventService = new EventService();
                 ArrayList<Handball> handballArrayList = null;
                 try {
@@ -114,6 +130,7 @@ public class SportsFragment extends Fragment {
                     e.printStackTrace();
                 }
 
+                //Create a table row for all Handball events and placing on the mViewSportsEvents TableView
                 for (int i = 0; i < handballArrayList.size(); i++) {
                     TableRow tr = new TableRow(v.getContext());
                     tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));

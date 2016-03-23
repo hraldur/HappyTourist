@@ -73,18 +73,7 @@ public class MapsActivity extends AppCompatActivity {
                                     int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                Place place = PlaceAutocomplete.getPlace(this, data);
-                Log.i(TAG, "Place:" + place.toString());
-            } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
-                Status status = PlaceAutocomplete.getStatus(this, data);
-                Log.i(TAG, status.getStatusMessage());
-            } else if (requestCode == RESULT_CANCELED) {
-
-            }
-        }
-
+        //get list of information about nearby places
         if (requestCode == PLACE_PICKER_REQUEST
                 && resultCode == Activity.RESULT_OK) {
 
@@ -94,6 +83,8 @@ public class MapsActivity extends AppCompatActivity {
             CharSequence address = place.getAddress();
             CharSequence number = place.getPhoneNumber();
             CharSequence attribution = place.getAttributions();
+
+            //set places rating
             float rating = place.getRating()*10;
             String stringRating;
             if(rating == -10.0){
@@ -103,20 +94,16 @@ public class MapsActivity extends AppCompatActivity {
                 stringRating = Float.toString(rating);
             }
 
-
-
-
             mName.setText(name);
             mAddress.setText(address);
             mPhone.setText(number);
             mAttribution.setText(attribution);
             mRating.setText(stringRating);
-            System.out.println(stringRating);
-
 
 
         }
 
+        //set autocomplete searcher
         AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
                 .setTypeFilter(AutocompleteFilter.TYPE_FILTER_ESTABLISHMENT)
                 .build();

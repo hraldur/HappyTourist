@@ -38,7 +38,7 @@ public class GetData {
         return sb.toString();
     }
 
-    //reads from url
+    //reads from url and returns a JSONObject with the information from apis.is/typeOfData
     public static JSONObject readData(String typeOfData) throws IOException, JSONException {
         InputStream is = new URL("http://apis.is/"+typeOfData).openStream();
         try {
@@ -51,11 +51,12 @@ public class GetData {
         }
     }
 
+    //Creates an array of CurrencyConverter objects from the JSONObject from apis.is/currency
     public CurrencyConverter[] createCurrencyConverter()throws JSONException, ParseException, IOException {
         JSONObject currency = readData("currency");
         JSONArray result = currency.getJSONArray("results");
 
-
+        //loop through the JSONArray result to create CurrencyConverter objects with attributes
         CurrencyConverter[] currencyConverters = new CurrencyConverter[result.length()];
         for(int i = 0; i < result.length(); i++){
             JSONObject converter = result.getJSONObject(i);
@@ -72,14 +73,15 @@ public class GetData {
         return currencyConverters;
     }
 
+    //Creates an array of Football objects from the JSONObject from apis.is/football
     public Football[] createFootballEvents() throws JSONException, ParseException, IOException {
         JSONObject sportsFootball = readData("sports/football");
         JSONArray result = sportsFootball.getJSONArray("results");
         Football[] fotbolti = new Football[result.length()];
+
+        //loop through the JSONArray result to create Football objects with attributes
         for(int i=0; i < result.length(); i++) {
             JSONObject footballEvent = result.getJSONObject(i);
-
-            int counter = footballEvent.getInt("counter");
 
             String date = footballEvent.getString("date");
             String time = footballEvent.getString("time");
@@ -99,10 +101,13 @@ public class GetData {
         return fotbolti;
     }
 
+    //Returns an array of Handball objects from the JSONObject from apis.is/handball
     public Handball[] createHandballEvents() throws IOException, JSONException, ParseException {
         JSONObject sportsHandball = readData("sports/handball");
         JSONArray result = sportsHandball.getJSONArray("results");
         Handball [] handbolti = new Handball[result.length()];
+
+        //loop through the JSONArray result to create Handball objects with attributes
         for(int i=0; i<result.length(); i++) {
             JSONObject handballEvent = result.getJSONObject(i);
             String teams = handballEvent.getString("Teams");
@@ -122,10 +127,13 @@ public class GetData {
         return handbolti;
     }
 
+    //Returns an array of Concert objects from the JSONObject from apis.is/concert
     public Concert[] createConcertsEvents() throws IOException, JSONException, ParseException {
         JSONObject concerts = readData("concerts");
         JSONArray result = concerts.getJSONArray("results");
         Concert [] tonleikar = new Concert[result.length()];
+
+        //loop through the JSONArray result to create Concert objects with attributes
         for(int i=0; i<result.length(); i++) {
             JSONObject concertsEvent = result.getJSONObject(i);
             String eventDateName = concertsEvent.getString("eventDateName");
@@ -152,10 +160,13 @@ public class GetData {
         return tonleikar;
     }
 
+    //Returns an array of Cinema objects from the JSONObject from apis.is/cinema
     public Cinema[] createCinemaEvents() throws IOException, JSONException, ParseException {
         JSONObject cinema = readData("cinema");
         JSONArray result = cinema.getJSONArray("results");
         Cinema [] bio = new Cinema[result.length()];
+
+        //loop through the JSONArray result to create Cinema objects with attributes
         for(int i=0; i< result.length(); i++) {
             JSONObject cinemaEvent = result.getJSONObject(i);
             String title = cinemaEvent.getString("title");
