@@ -87,14 +87,23 @@ public class EventFragment extends Fragment {
                     restrictedAge.setText(cinemaArrayList.get(i).restrictedAge);
                     tr.addView(restrictedAge);
 
+                    String theaters = "";
                     TextView movieTheater = new TextView(v.getContext());
-                    movieTheater.setText(cinemaArrayList.get(i).movieTheater[0]);
+                    for(int j=0; j<cinemaArrayList.get(i).movieTheater.length; j++){
+                        theaters += cinemaArrayList.get(i).movieTheater[j];
+                    }
+                    movieTheater.setText(theaters);
                     tr.addView(movieTheater);
 
+                    String showTimes = "";
                     TextView movieSchedule = new TextView(v.getContext());
-                    movieSchedule.setText(cinemaArrayList.get(i).movieSchedule[0][0]);
+                    for(int j=0; j<cinemaArrayList.get(i).movieSchedule.length; j++) {
+                        for(int k=0; k<cinemaArrayList.get(i).movieSchedule[j].length; k++){
+                            showTimes += cinemaArrayList.get(i).movieSchedule[j][k];
+                        }
+                    }
+                    movieSchedule.setText(showTimes);
                     tr.addView(movieSchedule);
-
                     mViewEvents.addView(tr);
                 }
             }
