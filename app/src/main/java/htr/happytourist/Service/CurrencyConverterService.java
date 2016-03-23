@@ -52,7 +52,8 @@ public class CurrencyConverterService {
     }
 
 
-    public double getValue(CurrencyConverter currencyConverter){
+
+    public double calculateCurrency(CurrencyConverter currencyConverter) {
         double value = 0.0;
         try {
             value = findValue(currencyConverter);
@@ -64,20 +65,11 @@ public class CurrencyConverterService {
             e.printStackTrace();
         }
 
-        return value;
-    }
-
-    public double calculateCurrency(CurrencyConverter currencyConverter) {
         double iskValue = currencyConverter.getIskValue();
-        double value = currencyConverter.getValue();
+        value = currencyConverter.getValue();
 
         double foreignValue = iskValue/value;
         currencyConverter.setForeignValue(foreignValue);
-
-        System.out.println("CurrencyName = " + currencyConverter.getCurrencyShortName());
-        System.out.println("Value = "+ currencyConverter.getValue());
-        System.out.println("ISK = "+ currencyConverter.getIskValue());
-        System.out.println("ForeignValue = "+ currencyConverter.getForeignValue());
 
         return currencyConverter.getForeignValue();
     }

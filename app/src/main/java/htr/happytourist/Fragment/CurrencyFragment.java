@@ -60,10 +60,7 @@ public class CurrencyFragment extends Fragment {
 
 
                 mCurrencyConverterService = new CurrencyConverterService();
-
-                mCurrencyConverterService.getValue(mCurrencyConverter);
                 mCurrencyConverterService.calculateCurrency(mCurrencyConverter);
-
                 String name = Double.toString(mCurrencyConverter.getForeignValue());
 
                 mForeignValueView.setText(name);
