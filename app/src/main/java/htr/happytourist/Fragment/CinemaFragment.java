@@ -12,6 +12,10 @@ import htr.happytourist.R;
 /**
  * Created by hlingunnlaugsdottir on 21/03/16.
  */
+
+
+
+/*** This class is not used yet ***/
 public class CinemaFragment extends Fragment {
 
     public CinemaFragment() {

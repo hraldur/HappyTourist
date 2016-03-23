@@ -33,10 +33,11 @@ public class EventFragment extends Fragment {
     Button mBtnConcerts;
     Button mBtnCinema;
     Button mBtnSports;
+    TableLayout mViewEvents;
     //TextView mViewConcerts;
     //TextView mViewCinema;
     //TextView mViewSports;
-    TableLayout mViewEvents;
+
 
     public EventFragment() {
         // Required empty public constructor
@@ -52,16 +53,21 @@ public class EventFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_events, container, false);
 
+        //The view that the events are displayed in
         mViewEvents = (TableLayout) v.findViewById(R.id.viewEvents);
 
-
-        //See Cinema events
+        //Cinema button
         mBtnCinema = (Button) v.findViewById(R.id.btnCinema);
+
+        //Display Cinema events
         mBtnCinema.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Intent intent = new Intent(v.getContext(), CinemaActivity.class);
                 //startActivityForResult(intent, 0);
+
+                //First remove all views that already are present in the mViewEvents view
+                mViewEvents.removeAllViews();
 
                 mEventService = new EventService();
                 ArrayList<Cinema> cinemaArrayList = null;
@@ -75,6 +81,7 @@ public class EventFragment extends Fragment {
                     e.printStackTrace();
                 }
 
+                //Create a table row for all Cinema events and placing on the mViewEvents TableView
                 for(int i=0; i<cinemaArrayList.size(); i++) {
                     TableRow tr = new TableRow(v.getContext());
                     tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
@@ -95,6 +102,7 @@ public class EventFragment extends Fragment {
                     movieTheater.setText(theaters);
                     tr.addView(movieTheater);
 
+                    //thetta er ekki ad koma alveg rett ut, a eftir ad laga
                     String showTimes = "";
                     TextView movieSchedule = new TextView(v.getContext());
                     for(int j=0; j<cinemaArrayList.get(i).movieSchedule.length; j++) {
@@ -109,17 +117,18 @@ public class EventFragment extends Fragment {
             }
         });
 
-
-
-
-
-        //See Concert events
+        //Concert button
         mBtnConcerts = (Button) v.findViewById(R.id.btnConcerts);
+
+        //Display Concert events
         mBtnConcerts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Intent intent = new Intent(v.getContext(), ConcertActivity.class);
                 //startActivityForResult(intent, 0);
+
+                //First remove all views that already are present in the mViewEvents view
+                mViewEvents.removeAllViews();
 
                 mEventService = new EventService();
                 ArrayList<Concert> concertsArrayList = null;
@@ -132,7 +141,7 @@ public class EventFragment extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
+                //Create a table row for all Concert events and placing on the mViewEvents TableView
                 for(int i=0; i<concertsArrayList.size(); i++) {
                     TableRow tr = new TableRow(v.getContext());
                     tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
@@ -166,8 +175,10 @@ public class EventFragment extends Fragment {
             }
         });
 
-        //See sport events
+        //Sports button
         mBtnSports = (Button) v.findViewById(R.id.btnSports);
+
+        //Go to sportsActivity
         mBtnSports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
