@@ -25,16 +25,23 @@ public class CurrencyConverterService {
         String a = "currency";
         GetData data = new GetData(a);
         CurrencyConverter[] currencyConverters = data.createCurrencyConverter();
-
-        ArrayList<CurrencyConverter> currencyList = new ArrayList<CurrencyConverter>(Arrays.asList(currencyConverters));
-
+        ArrayList<CurrencyConverter> currencyList = new ArrayList<>(Arrays.asList(currencyConverters));
         return currencyList;
     }
 
 
 
-    public double findValue(CurrencyConverter currencyConverter) throws ParseException, JSONException, IOException {
-        ArrayList<CurrencyConverter> currencyConverters = getCurrencyConverters();
+    public double findValue(CurrencyConverter currencyConverter){
+        ArrayList<CurrencyConverter> currencyConverters = null;
+        try {
+            currencyConverters = getCurrencyConverters();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         double value = 1;
         for(int i = 0; i < currencyConverters.size(); i++){
@@ -42,32 +49,20 @@ public class CurrencyConverterService {
 
                 value = currencyConverters.get(i).getValue();
                 currencyConverter.setValue(value);
-                //System.out.println("Value = "+value);
-
             }
-
         }
-
         return value;
     }
 
 
 
     public double calculateCurrency(CurrencyConverter currencyConverter) {
-        double value = 0.0;
-        try {
-            value = findValue(currencyConverter);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //get exchange rate for selected currency
+        findValue(currencyConverter);
+
 
         double iskValue = currencyConverter.getIskValue();
-        value = currencyConverter.getValue();
-
+        double value = currencyConverter.getValue();
         double foreignValue = iskValue/value;
         currencyConverter.setForeignValue(foreignValue);
 

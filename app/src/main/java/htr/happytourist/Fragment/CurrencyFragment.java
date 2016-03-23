@@ -18,7 +18,6 @@ public class CurrencyFragment extends Fragment {
     private CurrencyConverterService mCurrencyConverterService;
     EditText mIskValueText;
     TextView mForeignValueView;
-
     Button mBtnCurrency;
     Spinner mSpinnerCurrency;
 
@@ -41,28 +40,27 @@ public class CurrencyFragment extends Fragment {
         mIskValueText = (EditText) v.findViewById(R.id.textIskValue);
         mForeignValueView = (TextView) v.findViewById(R.id.viewForeignValue);
         mSpinnerCurrency = (Spinner) v.findViewById(R.id.spinnerCurrency);
-
-
         mBtnCurrency = (Button) v.findViewById(R.id.btnCurrency);
         mBtnCurrency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 mCurrencyConverter = new CurrencyConverter();
+                mCurrencyConverterService = new CurrencyConverterService();
+
+                //select currency
                 String spinVal = String.valueOf(mSpinnerCurrency.getSelectedItem());
                 Currency mCurrencyShortName = Currency.valueOf(spinVal);
                 mCurrencyConverter.setCurrencyShortName(mCurrencyShortName);
 
+                //get iskValue, input value
                 Double mISKValue;
                 mISKValue = Double.parseDouble(mIskValueText.getText().toString());
                 mCurrencyConverter.setIskValue(mISKValue);
-                mCurrencyConverter.setForeignValue(mISKValue);
 
-
-                mCurrencyConverterService = new CurrencyConverterService();
+                //convert amount to selected currency
                 mCurrencyConverterService.calculateCurrency(mCurrencyConverter);
                 String name = Double.toString(mCurrencyConverter.getForeignValue());
-
                 mForeignValueView.setText(name);
 
             }
