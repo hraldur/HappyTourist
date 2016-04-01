@@ -52,6 +52,7 @@ public class SportsFragment extends Fragment {
         mBtnFootball.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                mViewSportsEvents.removeAllViews();
                 mEventService = new EventService();
                 ArrayList<Football> footballArrayList = null;
                 try {
@@ -102,6 +103,7 @@ public class SportsFragment extends Fragment {
         mBtnHandball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mViewSportsEvents.removeAllViews();
                 mEventService = new EventService();
                 ArrayList<Handball> handballArrayList = null;
                 try {

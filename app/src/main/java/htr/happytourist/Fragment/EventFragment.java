@@ -63,6 +63,7 @@ public class EventFragment extends Fragment {
                 //Intent intent = new Intent(v.getContext(), CinemaActivity.class);
                 //startActivityForResult(intent, 0);
 
+                mViewEvents.removeAllViews();
                 mEventService = new EventService();
                 ArrayList<Cinema> cinemaArrayList = null;
                 try {
@@ -121,6 +122,7 @@ public class EventFragment extends Fragment {
                 //Intent intent = new Intent(v.getContext(), ConcertActivity.class);
                 //startActivityForResult(intent, 0);
 
+                mViewEvents.removeAllViews();
                 mEventService = new EventService();
                 ArrayList<Concert> concertsArrayList = null;
                 try {
