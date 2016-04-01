@@ -54,6 +54,7 @@
 
         <activity android:name=".UserActivity"/>
         <activity android:name=".CurrencyActivity"/>
+        <activity android:name=".InfoActivity"/>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

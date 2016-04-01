@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">HappyTourist</string>
 
-
     <string name="events">Events</string>
     <string name="eventCinema">Cinema</string>
     <string name="eventConcert">Concert</string>
     <string name="eventSports">Sports</string>
-
+    <string name="sportsFootball">Football Events</string>
+    <string name="sportsHandball">Handball Events</string>
+    <string name="infoPhrases">Phrases</string>
+    <string name="infoUsefulPhoneNumbers">Useful Phone Numbers</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_currency">CurrencyActivity</string>
@@ -22,7 +24,6 @@
         <item>CHF</item>
         <item>JPY</item>
     </string-array>
-
 
     <!-- Sign-in status messages -->
     <string name="signed_in_fmt">Signed in as: %s</string>

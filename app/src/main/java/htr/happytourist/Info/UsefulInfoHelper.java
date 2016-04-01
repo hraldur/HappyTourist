@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by hlingunnlaugsdottir on 30/03/16.
  */
+
+
+/*
 public class UsefulInfoHelper extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
@@ -30,3 +33,5 @@ public class UsefulInfoHelper extends SQLiteOpenHelper {
 
     }
 }
+
+*/

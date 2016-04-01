@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="htr.happytourist.Fragment.SportsFragment">
+             tools:context="htr.happytourist.Fragment.EventFragment">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -12,16 +11,17 @@
         android:layout_gravity="center_horizontal|top">
 
         <Button
-            android:id="@+id/btnFootball"
+            android:id="@+id/btnPhrases"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sportsFootball"/>
+            android:text="@string/infoPhrases"/>
 
         <Button
-            android:id="@+id/btnHandball"
+            android:id="@+id/btnUsefulPhoneNumbers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sportsHandball"/>
+            android:text="@string/infoUsefulPhoneNumbers"/>
+
 
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
@@ -29,22 +29,20 @@
                     android:scrollbars="vertical">
 
             <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:scrollbars="horizontal">
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="match_parent"
+                                  android:scrollbars="horizontal">
 
-            <TableLayout
-                android:id="@+id/viewSportsEvents"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"/>
+                <TextView
+                    android:id="@+id/viewUsefulInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"/>
 
             </HorizontalScrollView>
 
         </ScrollView>
 
     </TableLayout>
-
-
 
 </FrameLayout>

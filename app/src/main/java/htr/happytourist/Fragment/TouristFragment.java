@@ -17,6 +17,7 @@ import android.widget.Button;
 import htr.happytourist.CurrencyActivity;
 
 import htr.happytourist.EventActivity;
+import htr.happytourist.InfoActivity;
 import htr.happytourist.R;
 
 import htr.happytourist.MapsActivity;
@@ -32,6 +33,7 @@ public class TouristFragment extends Fragment {
     private Button mBtnLogin;
     private Button mBtnMap;
     private Button mBtnEvents;
+    private Button mBtnInfo;
 
 
     public TouristFragment() {
@@ -72,6 +74,14 @@ public class TouristFragment extends Fragment {
             }
         });
 
+        mBtnInfo = (Button) v.findViewById(R.id.btnInfo);
+        mBtnInfo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), InfoActivity.class);
+                startActivityForResult(intent,0);
+            }
+        });
 
 
     mBtnLogin=(Button)v.findViewById(R.id.btnLogin);

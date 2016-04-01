@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Currency Converter"
             android:id="@+id/btnCurrency"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +40,12 @@
             android:id="@+id/btnMap"
             android:layout_gravity="center_horizontal|top"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Useful Information"
+            android:id="@+id/btnInfo"
+            android:layout_gravity="center_horizontal|top"/>
 
     </TableLayout>
 </FrameLayout>
