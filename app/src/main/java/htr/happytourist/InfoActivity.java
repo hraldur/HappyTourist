@@ -12,7 +12,7 @@ public class InfoActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event);
+        setContentView(R.layout.activity_info);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().add(R.id.infoContainer, new InfoFragment()).commit();

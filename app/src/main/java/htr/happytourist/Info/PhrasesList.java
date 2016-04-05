@@ -12,26 +12,26 @@ import java.util.List;
  * Created by hlingunnlaugsdottir on 30/03/16.
  */
 
-/*
+
 public class PhrasesList {
     private Context mContext;
     private SQLiteDatabase mDatabase;
 
-    private PhrasesList(Context context) {
+    public PhrasesList(Context context) {
         mContext = context.getApplicationContext();
         mDatabase = new UsefulInfoHelper(mContext).getWritableDatabase();
     }
 
     private static ContentValues getContentValues(Phrases phrases) {
         ContentValues values = new ContentValues();
-        values.put(PhrasesDbSchema.PhrasesTable.Cols.ISL, phrases.getISL());
-        values.put(PhrasesDbSchema.PhrasesTable.Cols.ENG, phrases.getENG());
+        values.put(InfoDbSchema.PhrasesTable.Cols.ISL, phrases.getISL());
+        values.put(InfoDbSchema.PhrasesTable.Cols.ENG, phrases.getENG());
         return values;
     }
 
     private PhrasesCursorWrapper queryPhrases(String whereClause, String[] whereArgs){
         Cursor cursor = mDatabase.query(
-                PhrasesDbSchema.PhrasesTable.NAME,
+                InfoDbSchema.PhrasesTable.NAME,
                 null,
                 whereClause,
                 whereArgs,
@@ -44,7 +44,7 @@ public class PhrasesList {
 
     public void addPhrase(Phrases c) {
         ContentValues values = getContentValues(c);
-        mDatabase.insert(PhrasesDbSchema.PhrasesTable.NAME, null, values);
+        mDatabase.insert(InfoDbSchema.PhrasesTable.NAME, null, values);
     }
 
     public List<Phrases> getPhrases() {
@@ -62,4 +62,3 @@ public class PhrasesList {
     }
 }
 
-*/
