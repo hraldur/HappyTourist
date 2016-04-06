@@ -14,8 +14,8 @@ public class PhrasesCursorWrapper extends CursorWrapper {
     }
 
     public Phrases getPhrases() {
-        String eng = getString(getColumnIndex(InfoDbSchema.PhrasesTable.Cols.ENG));
-        String isl = getString(getColumnIndex(InfoDbSchema.PhrasesTable.Cols.ISL));
+        String eng = getString(getColumnIndex(InfoDbSchema.CommonPhrasesTable.Cols.ENG));
+        String isl = getString(getColumnIndex(InfoDbSchema.CommonPhrasesTable.Cols.ISL));
 
         Phrases phrases = new Phrases();
 

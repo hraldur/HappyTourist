@@ -1,5 +1,6 @@
 package htr.happytourist.Fragment;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import htr.happytourist.Info.InfoDbSchema;
 import htr.happytourist.Info.Phrases;
 import htr.happytourist.Info.PhrasesList;
 import htr.happytourist.Info.UsefulInfoHelper;
@@ -53,27 +55,35 @@ public class InfoFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                UsefulInfoHelper usefulInfoHelper = new UsefulInfoHelper(v.getContext());
-                SQLiteDatabase db = usefulInfoHelper.getWritableDatabase();
+                UsefulInfoHelper infoHelper = new UsefulInfoHelper(v.getContext());
+                SQLiteDatabase db = infoHelper.getReadableDatabase();
 
-                String eng = "Good morning";
-                String isl = "Góðan dag";
-                Phrases phrase = new Phrases(eng, isl);
+                Cursor cursor = db.query("Common_Phrases", new String[]{InfoDbSchema.CommonPhrasesTable.Cols.ENG, InfoDbSchema.CommonPhrasesTable.Cols.ISL}, null, null, null, null, null);
 
-                PhrasesList list = new PhrasesList(v.getContext());
-                list.addPhrase(phrase);
+                try {
+                    if (cursor.moveToFirst()) {
+                        String eng = cursor.getString(0);
+                        String ice = cursor.getString(1);
 
-                //PhrasesList list = new PhrasesList(v.getContext());
-                List<Phrases> phrasesList = null;
-                phrasesList = list.getPhrases();
+                        Phrases phraseText = new Phrases(eng, ice);
 
-                for (int i=0; i<phrasesList.size(); i++) {
-                    TableRow tr = new TableRow(v.getContext());
-                    tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+                        TableRow tr = new TableRow(v.getContext());
+                        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
 
-                    TextView phrases = new TextView(v.getContext());
-                    phrases.setText(phrasesList.get(i).toString());
-                    tr.addView(phrases);
+                        TextView english = new TextView(v.getContext());
+                        english.setText(eng);
+                        tr.addView(english);
+
+                        TextView icelandic = new TextView(v.getContext());
+                        icelandic.setText(ice);
+                        tr.addView(icelandic);
+
+                        mViewUsefulInfo.addView(tr);
+                    }
+                    cursor.close();
+                    db.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });

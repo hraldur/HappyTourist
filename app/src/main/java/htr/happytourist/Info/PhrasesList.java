@@ -24,14 +24,14 @@ public class PhrasesList {
 
     private static ContentValues getContentValues(Phrases phrases) {
         ContentValues values = new ContentValues();
-        values.put(InfoDbSchema.PhrasesTable.Cols.ISL, phrases.getISL());
-        values.put(InfoDbSchema.PhrasesTable.Cols.ENG, phrases.getENG());
+        values.put(InfoDbSchema.CommonPhrasesTable.Cols.ISL, phrases.getISL());
+        values.put(InfoDbSchema.CommonPhrasesTable.Cols.ENG, phrases.getENG());
         return values;
     }
 
     private PhrasesCursorWrapper queryPhrases(String whereClause, String[] whereArgs){
         Cursor cursor = mDatabase.query(
-                InfoDbSchema.PhrasesTable.NAME,
+                InfoDbSchema.CommonPhrasesTable.NAME,
                 null,
                 whereClause,
                 whereArgs,
@@ -44,7 +44,7 @@ public class PhrasesList {
 
     public void addPhrase(Phrases c) {
         ContentValues values = getContentValues(c);
-        mDatabase.insert(InfoDbSchema.PhrasesTable.NAME, null, values);
+        mDatabase.insert(InfoDbSchema.CommonPhrasesTable.NAME, null, values);
     }
 
     public List<Phrases> getPhrases() {
