@@ -31,7 +31,7 @@ public class UsefulInfoHelper extends SQLiteOpenHelper {
         );
 
         //Create usefulphonenumbers table in database
-        db.execSQL("create table" + InfoDbSchema.UsefulPhoneNumbersTable.NAME + "(" + "_id integer primary key autoincrement, " +
+        db.execSQL("create table " + InfoDbSchema.UsefulPhoneNumbersTable.NAME + "(" + "_id integer primary key autoincrement, " +
                         InfoDbSchema.UsefulPhoneNumbersTable.Cols.OWNER + "," +
                         InfoDbSchema.UsefulPhoneNumbersTable.Cols.PHONENUMBER + ");"
         );
