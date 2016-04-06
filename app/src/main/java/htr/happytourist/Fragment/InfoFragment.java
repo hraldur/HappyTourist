@@ -21,6 +21,8 @@ import htr.happytourist.Info.InfoDbSchema;
 import htr.happytourist.Info.Phrases;
 import htr.happytourist.Info.PhrasesList;
 import htr.happytourist.Info.UsefulInfoHelper;
+import htr.happytourist.Info.UsefulPhoneNumbers;
+import htr.happytourist.Info.UsefulPhoneNumbersList;
 import htr.happytourist.R;
 
 /**
@@ -46,46 +48,74 @@ public class InfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_info, container, false);
 
+        //Create database info.db when view is created
+        UsefulInfoHelper infoHelper = new UsefulInfoHelper(v.getContext());
+        SQLiteDatabase db = infoHelper.getReadableDatabase();
+
         //Useful information view
         mViewUsefulInfo = (TableLayout) v.findViewById(R.id.viewUsefulInfo);
 
         //Phrases button
         mBtnPhrases = (Button) v.findViewById(R.id.btnPhrases);
+
+        //Display phrases
         mBtnPhrases.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                UsefulInfoHelper infoHelper = new UsefulInfoHelper(v.getContext());
-                SQLiteDatabase db = infoHelper.getReadableDatabase();
+                //First remove all views that already are present in the mViewUsefulInfo view
+                mViewUsefulInfo.removeAllViews();
 
-                Cursor cursor = db.query("Common_Phrases", new String[]{InfoDbSchema.CommonPhrasesTable.Cols.ENG, InfoDbSchema.CommonPhrasesTable.Cols.ISL}, null, null, null, null, null);
+                PhrasesList phrasesList = new PhrasesList(getContext());
+                List<Phrases> listPhrases = phrasesList.getPhrases();
 
-                try {
-                    if (cursor.moveToFirst()) {
-                        String eng = cursor.getString(0);
-                        String ice = cursor.getString(1);
+                for(int i=0; i<listPhrases.size();i++){
+                    TableRow tr = new TableRow(v.getContext());
+                    tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
 
-                        Phrases phraseText = new Phrases(eng, ice);
+                    TextView english = new TextView(v.getContext());
+                    english.setText(listPhrases.get(i).ENG.toString());
+                    tr.addView(english);
 
-                        TableRow tr = new TableRow(v.getContext());
-                        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+                    TextView icelandic = new TextView(v.getContext());
+                    icelandic.setText(listPhrases.get(i).ISL.toString());
+                    tr.addView(icelandic);
 
-                        TextView english = new TextView(v.getContext());
-                        english.setText(eng);
-                        tr.addView(english);
-
-                        TextView icelandic = new TextView(v.getContext());
-                        icelandic.setText(ice);
-                        tr.addView(icelandic);
-
-                        mViewUsefulInfo.addView(tr);
-                    }
-                } finally  {
-                    cursor.close();
-                    db.close();
+                    mViewUsefulInfo.addView(tr);
                 }
             }
         });
+
+        mBtnUsefulPhoneNumbers = (Button) v.findViewById(R.id.btnUsefulPhoneNumbers);
+
+        //Display usefulPhoneNumbers
+        mBtnUsefulPhoneNumbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //First remove all views that already are present in the mViewUsefulInfo view
+                mViewUsefulInfo.removeAllViews();
+
+                UsefulPhoneNumbersList usefulPhoneNumbersList = new UsefulPhoneNumbersList(getContext());
+                List<UsefulPhoneNumbers> listUsefulPhoneNumbers = usefulPhoneNumbersList.getUsefulPhoneNumbers();
+
+                for(int i=0; i<listUsefulPhoneNumbers.size();i++){
+                    TableRow tr = new TableRow(v.getContext());
+                    tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+                    TextView owner = new TextView(v.getContext());
+                    owner.setText(listUsefulPhoneNumbers.get(i).OWNER.toString());
+                    tr.addView(owner);
+
+                    TextView phoneNumber = new TextView(v.getContext());
+                    phoneNumber.setText(listUsefulPhoneNumbers.get(i).PHONENUMBER.toString());
+                    tr.addView(phoneNumber);
+
+                    mViewUsefulInfo.addView(tr);
+                }
+            }
+        });
+
         return v;
     }
 }

@@ -35,20 +35,49 @@ public class UsefulInfoHelper extends SQLiteOpenHelper {
                         InfoDbSchema.UsefulPhoneNumbersTable.Cols.OWNER + "," +
                         InfoDbSchema.UsefulPhoneNumbersTable.Cols.PHONENUMBER + ");"
         );
-        setPhrasesDatabaseValues(db);
+        setInfoDatabaseValues(db);
     }
 
-    private void setPhrasesDatabaseValues(SQLiteDatabase db) {
-        ContentValues phrasesValues = new ContentValues();
-        phrasesValues.put(InfoDbSchema.CommonPhrasesTable.Cols.ENG, "Good morning");
-        phrasesValues.put(InfoDbSchema.CommonPhrasesTable.Cols.ISL, "Godan dag");
+    private void setInfoDatabaseValues(SQLiteDatabase db) {
+        //arrays with common icelandic phrases
+        String[] phrase1 = {"Hello", "Góðan Dag"};
+        String[] phrase2 = {"Goodbye", "Bless"};
+        String[] phrase3 = {"Thank you", "Takk fyrir"};
+        String[] phrase4 = {"What can you recommend", "Hverju mælir þú með"};
+        String[] phrase5 = {"Check please", "Reikninginn takk fyrir"};
+        String[] phrase6 = {"I am looking for ", "Ég er að leita að"};
 
-        ContentValues usefulPhoneNumbersValues = new ContentValues();
-        usefulPhoneNumbersValues.put(InfoDbSchema.UsefulPhoneNumbersTable.Cols.OWNER, "Emergency");
-        usefulPhoneNumbersValues.put(InfoDbSchema.UsefulPhoneNumbersTable.Cols.PHONENUMBER, (Integer) 112);
+        //one array with all the phrases
+        String [][] phrasesList = new String[][] {phrase1, phrase2, phrase3, phrase4, phrase5, phrase6};
 
-        db.insert(InfoDbSchema.CommonPhrasesTable.NAME, null, phrasesValues);
-        db.insert(InfoDbSchema.UsefulPhoneNumbersTable.NAME, null, usefulPhoneNumbersValues);
+        //put phrases into the database using Content values
+        for(int i=0; i<phrasesList.length;i++) {
+            ContentValues phrasesValues = new ContentValues();
+            phrasesValues.put(InfoDbSchema.CommonPhrasesTable.Cols.ENG, phrasesList[i][0]);
+            phrasesValues.put(InfoDbSchema.CommonPhrasesTable.Cols.ISL, phrasesList[i][1]);
+
+            db.insert(InfoDbSchema.CommonPhrasesTable.NAME, null, phrasesValues);
+        }
+
+        //arrays with useful icelandic phone numbers
+        String[] phoneNumber1 = {"Emergency Phone", "112"};
+        String[] phoneNumber2 = {"Reykjavik Police", "4441000"};
+        String[] phoneNumber3 = {"Hreyfill Taxi", "5885522"};
+        String[] phoneNumber4 = {"Bus", "5402700"};
+        String[] phoneNumber5 = {"Icelandic Bank", "4404000"};
+        String[] phoneNumber6 = {"National Bank", "4104000"};
+
+        //one array with all the phone numbers
+        String [][] phoneNumbersList = new String[][] {phoneNumber1, phoneNumber2, phoneNumber3, phoneNumber4, phoneNumber5, phoneNumber6};
+
+        //put phone numbers into the database using Content values
+        for(int i=0; i<phoneNumbersList.length;i++){
+            ContentValues usefulPhoneNumbersValues = new ContentValues();
+            usefulPhoneNumbersValues.put(InfoDbSchema.UsefulPhoneNumbersTable.Cols.OWNER, phoneNumbersList[i][0]);
+            usefulPhoneNumbersValues.put(InfoDbSchema.UsefulPhoneNumbersTable.Cols.PHONENUMBER, phoneNumbersList[i][1]);
+
+            db.insert(InfoDbSchema.UsefulPhoneNumbersTable.NAME, null, usefulPhoneNumbersValues);
+        }
     }
 
     @Override

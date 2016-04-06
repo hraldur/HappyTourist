@@ -22,34 +22,30 @@ public class PhrasesList {
         mDatabase = new UsefulInfoHelper(mContext).getWritableDatabase();
     }
 
+    /*
     private static ContentValues getContentValues(Phrases phrases) {
         ContentValues values = new ContentValues();
         values.put(InfoDbSchema.CommonPhrasesTable.Cols.ISL, phrases.getISL());
         values.put(InfoDbSchema.CommonPhrasesTable.Cols.ENG, phrases.getENG());
         return values;
+    }*/
+
+    private InfoCursorWrapper queryPhrases(String whereClause, String[] whereArgs){
+        Cursor cursor = mDatabase.query("Common_Phrases", new String[]{InfoDbSchema.CommonPhrasesTable.Cols.ENG, InfoDbSchema.CommonPhrasesTable.Cols.ISL}, null, null, null, null, null);
+        return new InfoCursorWrapper(cursor);
     }
 
-    private PhrasesCursorWrapper queryPhrases(String whereClause, String[] whereArgs){
-        Cursor cursor = mDatabase.query(
-                InfoDbSchema.CommonPhrasesTable.NAME,
-                null,
-                whereClause,
-                whereArgs,
-                null,
-                null,
-                null
-        );
-        return new PhrasesCursorWrapper(cursor);
-    }
-
+    /*
     public void addPhrase(Phrases c) {
         ContentValues values = getContentValues(c);
         mDatabase.insert(InfoDbSchema.CommonPhrasesTable.NAME, null, values);
     }
+    */
 
     public List<Phrases> getPhrases() {
         List<Phrases> phrases = new ArrayList<>();
-        PhrasesCursorWrapper cursor = queryPhrases(null, null);
+
+        InfoCursorWrapper cursor = queryPhrases(null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
