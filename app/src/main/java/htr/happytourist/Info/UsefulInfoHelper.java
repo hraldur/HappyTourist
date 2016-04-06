@@ -27,7 +27,7 @@ public class UsefulInfoHelper extends SQLiteOpenHelper {
         //Creating phrases table in database
         db.execSQL("create table " + InfoDbSchema.CommonPhrasesTable.NAME + "(" + "_id integer primary key autoincrement, " +
                         InfoDbSchema.CommonPhrasesTable.Cols.ENG + "," +
-                        InfoDbSchema.CommonPhrasesTable.Cols.ISL + "," + ");"
+                        InfoDbSchema.CommonPhrasesTable.Cols.ISL + ");"
         );
 
         //Create usefulphonenumbers table in database
