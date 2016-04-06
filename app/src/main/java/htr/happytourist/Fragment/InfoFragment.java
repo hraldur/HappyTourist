@@ -80,10 +80,9 @@ public class InfoFragment extends Fragment {
 
                         mViewUsefulInfo.addView(tr);
                     }
+                } finally  {
                     cursor.close();
                     db.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
             }
         });
