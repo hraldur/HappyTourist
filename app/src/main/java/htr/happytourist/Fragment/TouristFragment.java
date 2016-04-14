@@ -13,6 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 import htr.happytourist.CurrencyActivity;
 
@@ -34,6 +38,7 @@ public class TouristFragment extends Fragment {
     private Button mBtnMap;
     private Button mBtnEvents;
     private Button mBtnInfo;
+    private TextView mTextViewDateTime;
 
 
     public TouristFragment() {
@@ -52,6 +57,12 @@ public class TouristFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tourist, container, false);
+
+        //Display Time and date
+        mTextViewDateTime = (TextView) v.findViewById(R.id.textViewDateTime);
+        String currentDateTimeString = DateFormat.getDateInstance().format(new Date());
+        String happytourist = "Happy Tourist Reykjavík" + "\n" + currentDateTimeString;
+        mTextViewDateTime.setText(happytourist);
 
 
         //See Events button click

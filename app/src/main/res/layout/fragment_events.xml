@@ -5,30 +5,54 @@
              android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="@color/colorBackground"
              tools:context="htr.happytourist.Fragment.EventFragment">
 
         <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal|top">
+                android:weightSum="8">
+
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_weight="0.8"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnCinema"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/eventCinema"/>
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:text="@string/eventCinema"
+                    android:background="@drawable/main_buttons"
+                    style="@style/button_text"/>
 
                 <Button
                     android:id="@+id/btnConcerts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/eventConcert"/>
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:text="@string/eventConcert"
+                    android:background="@drawable/main_buttons"
+                    style="@style/button_text"/>
+
 
                 <Button
                     android:id="@+id/btnSports"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/eventSports"/>
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:text="@string/eventSports"
+                    android:background="@drawable/main_buttons"
+                    style="@style/button_text"/>
+
+            </LinearLayout>
+
 
             <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
                         android:layout_width="match_parent"

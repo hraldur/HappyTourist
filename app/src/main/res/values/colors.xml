@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+
+
+    <color name="colorBackground">#e9e1ce</color>
+
+    <color name="loginBtn">#eb4127</color>
+    <color name="loginBtn_pressed">#c43520</color>
+
+    <color name="currencyBtn">#faa400</color>
+    <color name="currencyBtn_pressed">#df9510</color>
+
+    <color name="useful_informationBtn">#0f263d</color>
+    <color name="useful_informationBtn_pressed">#15293e</color>
+
+    <color name="eventsBtn">#22b7cd</color>
+    <color name="eventBtn_pressed">#24a1b3</color>
+
+    <color name="mapBtn">#f73d3f</color>
+    <color name="mapBtn_pressed">#d13a3b</color>
+
+    <color name="auroraBtn">#2cd787</color>
+    <color name="auroraBtn_pressed">#2aaf72</color>
+
+    <color name="happyTourist_logo">#64c194</color>
+
+
+
+
+    <color name="colorPrimary">#afaeae</color>
+    <color name="colorPrimaryDark">#898888</color>
 
     <color name="colorAccent">#e1176f</color>
     <color name="red">#FF4500</color>
@@ -12,5 +39,6 @@
     <color name="blue_grey_700">#455A64</color>
     <color name="blue_grey_800">#37474F</color>
     <color name="blue_grey_900">#263238</color>
+    <color name="primary_material_light">#d7d6d6</color>
 
 </resources>
