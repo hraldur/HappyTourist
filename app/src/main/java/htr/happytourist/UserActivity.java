@@ -32,6 +32,8 @@ public class UserActivity extends AppCompatActivity implements
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
+    private String personID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class UserActivity extends AppCompatActivity implements
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
-
+        findViewById(R.id.map).setOnClickListener(this);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -62,7 +64,11 @@ public class UserActivity extends AppCompatActivity implements
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setScopes(gso.getScopeArray());
+
+
     }
+
+
 
     @Override
     public void onStart() {
@@ -98,8 +104,14 @@ public class UserActivity extends AppCompatActivity implements
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
+
         }
+
     }
+
+
+
+
 
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
@@ -107,6 +119,7 @@ public class UserActivity extends AppCompatActivity implements
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(acct.getDisplayName());
+            personID = acct.getId();
             updateUI(true);
         } else {
             // Signed out, show unauthenticated UI.
@@ -118,6 +131,7 @@ public class UserActivity extends AppCompatActivity implements
     private void signIn() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
 
     private void signOut() {
@@ -160,11 +174,13 @@ public class UserActivity extends AppCompatActivity implements
         if (signedIn) {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out).setVisibility(View.VISIBLE);
+            findViewById(R.id.map).setVisibility(View.VISIBLE);
         } else {
             mStatusTextView.setText(R.string.signed_out);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out).setVisibility(View.GONE);
+            findViewById(R.id.map).setVisibility(View.GONE);
         }
     }
 
@@ -177,6 +193,19 @@ public class UserActivity extends AppCompatActivity implements
             case R.id.sign_out_button:
                 signOut();
                 break;
+            case R.id.map:
+                //send information to MapsActivity
+                Intent mapIntent = new Intent(UserActivity.this, MapsActivity.class);
+                String personName = mStatusTextView.getText().toString();
+                mapIntent.putExtra("personName", personName.toString());
+                mapIntent.putExtra("personID", personID);
+                startActivity(mapIntent);
+
+                break;
+
         }
     }
+
+
+
 }

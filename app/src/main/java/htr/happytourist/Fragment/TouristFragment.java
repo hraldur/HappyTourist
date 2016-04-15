@@ -2,25 +2,19 @@ package htr.happytourist.Fragment;
 
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 import htr.happytourist.CurrencyActivity;
-
 import htr.happytourist.EventActivity;
-import htr.happytourist.R;
-
 import htr.happytourist.MapsActivity;
-
+import htr.happytourist.R;
+import htr.happytourist.ReviewActivity;
 import htr.happytourist.UserActivity;
 
 
@@ -32,6 +26,7 @@ public class TouristFragment extends Fragment {
     private Button mBtnLogin;
     private Button mBtnMap;
     private Button mBtnEvents;
+    private Button mBtnReview;
 
 
     public TouristFragment() {
@@ -98,6 +93,15 @@ public class TouristFragment extends Fragment {
             }
         });
 
+        mBtnReview = (Button) v.findViewById(R.id.btnReview);
+        mBtnReview.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ReviewActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
 
         return v;
     }
