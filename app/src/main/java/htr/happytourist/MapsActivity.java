@@ -35,8 +35,6 @@ public class MapsActivity extends AppCompatActivity {
     private static final LatLngBounds BOUNDS_MOUNTAIN_VIEW = new LatLngBounds(
             new LatLng(64.1419422, -21.9268126), new LatLng(64.147610, -21.922090));
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

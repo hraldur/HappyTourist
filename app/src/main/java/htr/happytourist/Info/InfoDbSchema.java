@@ -5,7 +5,10 @@ package htr.happytourist.Info;
  */
 
 
+//Definition of the schemas from the info.db database
 public class InfoDbSchema {
+
+    //The Common phrases table
     public static final class CommonPhrasesTable {
         public static final String NAME = "Common_Phrases";
         public static final class Cols {
@@ -14,6 +17,7 @@ public class InfoDbSchema {
         }
     }
 
+    //The useful phonenumbers table
     public static final class UsefulPhoneNumbersTable {
         public static final String NAME = "Useful_Phone_Numbers";
         public static final class Cols {

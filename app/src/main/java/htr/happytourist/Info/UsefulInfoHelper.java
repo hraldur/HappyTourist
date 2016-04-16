@@ -79,7 +79,7 @@ public class UsefulInfoHelper extends SQLiteOpenHelper {
         String[] phoneNumber2 = {"Reykjavik Police", "4441000"};
         String[] phoneNumber3 = {"Hreyfill Taxi", "5885522"};
         String[] phoneNumber4 = {"Bus", "5402700"};
-        String[] phoneNumber5= {"Search and rescue", "570-5900"};
+        String[] phoneNumber5 = {"Search and rescue", "570-5900"};
         String[] phoneNumber6 = {"International Directory Inquiries", "1811"};
         String[] phoneNumber7 = {"E.R Emergency Room Landspítali Hospital", "543-2000"};
         String[] phoneNumber8 = {"Lost and found", "4441000"};
