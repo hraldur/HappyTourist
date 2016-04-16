@@ -19,6 +19,9 @@
     <color name="mapBtn">#f73d3f</color>
     <color name="mapBtn_pressed">#d13a3b</color>
 
+    <color name="weatherBtn">#2cd787</color>
+    <color name="weatherBtn_pressed">#24a1b3</color>
+
     <color name="auroraBtn">#2cd787</color>
     <color name="auroraBtn_pressed">#2aaf72</color>
 

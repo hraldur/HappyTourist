@@ -27,7 +27,7 @@ import htr.happytourist.R;
 import htr.happytourist.MapsActivity;
 
 import htr.happytourist.UserActivity;
-
+import htr.happytourist.WeatherActivity;
 
 
 public class TouristFragment extends Fragment {
@@ -38,6 +38,7 @@ public class TouristFragment extends Fragment {
     private Button mBtnMap;
     private Button mBtnEvents;
     private Button mBtnInfo;
+    private Button mBtnWeather;
     private TextView mTextViewDateTime;
 
 
@@ -116,6 +117,15 @@ public class TouristFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), MapsActivity.class);
                 startActivityForResult(intent, 0);
+            }
+        });
+
+        mBtnWeather = (Button) v.findViewById(R.id.btnWeather);
+        mBtnWeather.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), WeatherActivity.class);
+                startActivityForResult(intent,0);
             }
         });
 
