@@ -17,7 +17,6 @@
 
     </LinearLayout>
 
-
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
@@ -49,6 +48,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+<<<<<<< HEAD
                 android:text="@string/sign_out"
                 />
 
@@ -67,6 +67,9 @@
                 android:text="My Review"
                 />
 
+=======
+                android:text="@string/sign_out"/>
+>>>>>>> master
 
         </LinearLayout>
 
