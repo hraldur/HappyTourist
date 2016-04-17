@@ -2,13 +2,9 @@ package htr.happytourist.Fragment;
 
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +15,10 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import htr.happytourist.CurrencyActivity;
-
 import htr.happytourist.EventActivity;
 import htr.happytourist.InfoActivity;
-import htr.happytourist.R;
-
 import htr.happytourist.MapsActivity;
-
+import htr.happytourist.R;
 import htr.happytourist.UserActivity;
 import htr.happytourist.WeatherActivity;
 
@@ -37,9 +30,12 @@ public class TouristFragment extends Fragment {
     private Button mBtnLogin;
     private Button mBtnMap;
     private Button mBtnEvents;
+
+
     private Button mBtnInfo;
     private Button mBtnWeather;
     private TextView mTextViewDateTime;
+
 
 
     public TouristFragment() {
@@ -119,6 +115,7 @@ public class TouristFragment extends Fragment {
                 startActivityForResult(intent, 0);
             }
         });
+
 
         mBtnWeather = (Button) v.findViewById(R.id.btnWeather);
         mBtnWeather.setOnClickListener(new View.OnClickListener(){

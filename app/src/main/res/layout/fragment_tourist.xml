@@ -121,6 +121,7 @@
                 android:drawableTop="@drawable/ic_event_white_24dp"
                 style="@style/button_text"/>
 
+
             <Button
                 android:id="@+id/btnMap"
                 android:layout_weight="1"
