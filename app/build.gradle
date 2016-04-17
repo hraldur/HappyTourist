@@ -21,10 +21,6 @@ android {
             debuggable true
         }
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     packagingOptions {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE-FIREBASE.txt'
@@ -45,11 +41,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:8.4.0'
     compile 'com.google.android.gms:play-services-maps:8.4.0'
     compile 'com.google.android.gms:play-services-location:8.4.0'
-<<<<<<< HEAD
-    compile 'com.google.android.gms:play-services-plus:8.4.0'
-=======
 
->>>>>>> master
     compile 'com.firebase:firebase-client-android:2.5.2'
 }
 

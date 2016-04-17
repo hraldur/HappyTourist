@@ -93,19 +93,6 @@
         </LinearLayout>
 
         <Button
-<<<<<<< HEAD
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Map"
-            android:id="@+id/btnMap"
-            android:layout_gravity="center_horizontal|top"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Review"
-            android:id="@+id/btnReview"/>
-
-=======
             android:id="@+id/btnCurrency"
             android:layout_weight="1"
             android:layout_width="match_parent"
@@ -133,7 +120,7 @@
                 android:background="@drawable/main_buttons"
                 android:drawableTop="@drawable/ic_event_white_24dp"
                 style="@style/button_text"/>
->>>>>>> master
+
 
             <Button
                 android:id="@+id/btnMap"

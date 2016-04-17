@@ -16,15 +16,9 @@ import java.util.Date;
 
 import htr.happytourist.CurrencyActivity;
 import htr.happytourist.EventActivity;
-<<<<<<< HEAD
-=======
 import htr.happytourist.InfoActivity;
-import htr.happytourist.R;
-
->>>>>>> master
 import htr.happytourist.MapsActivity;
 import htr.happytourist.R;
-import htr.happytourist.WriteReviewActivity;
 import htr.happytourist.UserActivity;
 import htr.happytourist.WeatherActivity;
 
@@ -36,13 +30,12 @@ public class TouristFragment extends Fragment {
     private Button mBtnLogin;
     private Button mBtnMap;
     private Button mBtnEvents;
-<<<<<<< HEAD
-    private Button mBtnReview;
-=======
+
+
     private Button mBtnInfo;
     private Button mBtnWeather;
     private TextView mTextViewDateTime;
->>>>>>> master
+
 
 
     public TouristFragment() {
@@ -123,17 +116,7 @@ public class TouristFragment extends Fragment {
             }
         });
 
-<<<<<<< HEAD
-        mBtnReview = (Button) v.findViewById(R.id.btnReview);
-        mBtnReview.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), WriteReviewActivity.class);
-                startActivityForResult(intent, 0);
-            }
-        });
-=======
         mBtnWeather = (Button) v.findViewById(R.id.btnWeather);
         mBtnWeather.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -143,7 +126,6 @@ public class TouristFragment extends Fragment {
             }
         });
 
->>>>>>> master
 
         return v;
     }
