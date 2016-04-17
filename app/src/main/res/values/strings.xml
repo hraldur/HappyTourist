@@ -1,12 +1,37 @@
 <resources>
     <string name="app_name">HappyTourist</string>
 
-
+    <!--Happy Tourist main activity-->
+    <string name="weatherForecast">Weather</string>
+    <string name="auroraForecast">Aurora</string>
     <string name="events">Events</string>
+    <string name="map">Map</string>
+    <string name="currencyConverter">Currency Converter</string>
+    <string name="usefulInfo">Useful Information</string>
+    <string name="login">Login</string>
+
+
+
     <string name="eventCinema">Cinema</string>
     <string name="eventConcert">Concert</string>
     <string name="eventSports">Sports</string>
+    <string name="sportsFootball">Football Events</string>
+    <string name="sportsHandball">Handball Events</string>
+    <string name="infoPhrases">Phrases</string>
+    <string name="infoUsefulPhoneNumbers">Useful Phone Numbers</string>
 
+    <string name="change_city">Change city</string>
+    <string name="open_weather_maps_app_id">d8c07ce9918863952caaac0572435749</string>
+    <string name="weather_sunny">&#xf00d;</string>
+    <string name="weather_clear_night">&#xf02e;</string>
+    <string name="weather_foggy">&#xf014;</string>
+    <string name="weather_cloudy">&#xf013;</string>
+    <string name="weather_rainy">&#xf019;</string>
+    <string name="weather_snowy">&#xf01b;</string>
+    <string name="weather_thunder">&#xf01e;</string>
+    <string name="weather_drizzle">&#xf01c;</string>
+
+    <string name="place_not_found">Sorry, no weather data found.</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_currency">CurrencyActivity</string>
@@ -22,7 +47,6 @@
         <item>CHF</item>
         <item>JPY</item>
     </string-array>
-
 
     <!-- Sign-in status messages -->
     <string name="signed_in_fmt">Signed in as: %s</string>

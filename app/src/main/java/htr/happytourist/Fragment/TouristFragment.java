@@ -13,16 +13,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 import htr.happytourist.CurrencyActivity;
 
 import htr.happytourist.EventActivity;
+import htr.happytourist.InfoActivity;
 import htr.happytourist.R;
 
 import htr.happytourist.MapsActivity;
 
 import htr.happytourist.UserActivity;
-
+import htr.happytourist.WeatherActivity;
 
 
 public class TouristFragment extends Fragment {
@@ -32,6 +37,9 @@ public class TouristFragment extends Fragment {
     private Button mBtnLogin;
     private Button mBtnMap;
     private Button mBtnEvents;
+    private Button mBtnInfo;
+    private Button mBtnWeather;
+    private TextView mTextViewDateTime;
 
 
     public TouristFragment() {
@@ -50,6 +58,12 @@ public class TouristFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tourist, container, false);
+
+        //Display Time and date
+        mTextViewDateTime = (TextView) v.findViewById(R.id.textViewDateTime);
+        String currentDateTimeString = DateFormat.getDateInstance().format(new Date());
+        String happytourist = "Happy Tourist Reykjavík" + "\n" + currentDateTimeString;
+        mTextViewDateTime.setText(happytourist);
 
 
         //See Events button click
@@ -72,6 +86,14 @@ public class TouristFragment extends Fragment {
             }
         });
 
+        mBtnInfo = (Button) v.findViewById(R.id.btnInfo);
+        mBtnInfo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), InfoActivity.class);
+                startActivityForResult(intent,0);
+            }
+        });
 
 
     mBtnLogin=(Button)v.findViewById(R.id.btnLogin);
@@ -95,6 +117,15 @@ public class TouristFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), MapsActivity.class);
                 startActivityForResult(intent, 0);
+            }
+        });
+
+        mBtnWeather = (Button) v.findViewById(R.id.btnWeather);
+        mBtnWeather.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), WeatherActivity.class);
+                startActivityForResult(intent,0);
             }
         });
 

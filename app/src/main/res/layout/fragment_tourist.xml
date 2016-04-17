@@ -1,45 +1,138 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="htr.happytourist.Fragment.TouristFragment">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fontFamily="ostrich-regular"
+    tools:context=".TouristActivity">
 
     <TableLayout
+        android:weightSum="8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal|top">
-        <TextView
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_weight="1.2"
+            android:weightSum="3"
             android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnInfo"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/usefulInfo"
+                android:background="@drawable/info_button"
+                android:drawableLeft="@drawable/ic_info_white_24dp"
+                style="@style/button_text"/>
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/login"
+                android:background="@drawable/login_button"
+                style="@style/button_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="3"
+            android:layout_weight="3.8"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewDateTime"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:background="@drawable/happytourist_textview"
+                android:drawableBottom="@drawable/ic_loyalty_white_48dp"
+                style="@style/dateTime_text"/>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnWeather"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="4dp"
+                    android:text="@string/weatherForecast"
+                    android:background="@drawable/main_buttons"
+                    android:drawableTop="@drawable/ic_wb_sunny_white_24dp"
+                    style="@style/button_text"/>
+
+                <Button
+                    android:id="@+id/btnAurora"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_margin="4dp"
+                    android:text="@string/auroraForecast"
+                    android:background="@drawable/info_button"
+                    android:drawableTop="@drawable/ic_looks_white_24dp"
+                    style="@style/button_text"/>
+
+            </LinearLayout>
+        </LinearLayout>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Currency Converter"
-            android:id="@+id/btnCurrency"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Events"
-            android:id="@+id/btnEvents"/>
+            android:id="@+id/btnCurrency"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:text="@string/currencyConverter"
+            android:background="@drawable/currency_button"
+            android:drawableLeft="@drawable/ic_attach_money_white_24dp"
+            style="@style/button_text"/>
 
+        <LinearLayout
+            android:layout_weight="2"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:id="@+id/btnLogin"
-            android:layout_gravity="top"/>
+            <Button
+                android:id="@+id/btnEvents"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/events"
+                android:background="@drawable/main_buttons"
+                android:drawableTop="@drawable/ic_event_white_24dp"
+                style="@style/button_text"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Map"
-            android:id="@+id/btnMap"
-            android:layout_gravity="center_horizontal|top"/>
+            <Button
+                android:id="@+id/btnMap"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/map"
+                android:background="@drawable/login_button"
+                android:drawableTop="@drawable/ic_near_me_white_24dp"
+                style="@style/button_text"/>
 
-
+        </LinearLayout>
     </TableLayout>
 </FrameLayout>
 
