@@ -3,12 +3,14 @@
 
     <!--Happy Tourist main activity-->
     <string name="weatherForecast">Weather</string>
+    <string name="myReviews">My Reviews</string>
     <string name="auroraForecast">Aurora</string>
     <string name="events">Events</string>
     <string name="map">Map</string>
     <string name="currencyConverter">Currency Converter</string>
     <string name="usefulInfo">Useful Information</string>
     <string name="login">Login</string>
+    <string name="logout">Log Out</string>
 
 
 

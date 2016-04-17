@@ -19,6 +19,9 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 /**
  * Activity to demonstrate basic retrieval of the Google user's ID, email address, and basic
  * profile.
@@ -48,6 +51,11 @@ public class UserActivity extends AppCompatActivity implements
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.map).setOnClickListener(this);
         findViewById(R.id.myReview).setOnClickListener(this);
+        findViewById(R.id.btnInfo).setOnClickListener(this);
+        findViewById(R.id.btnWeather).setOnClickListener(this);
+        findViewById(R.id.btnCurrency).setOnClickListener(this);
+        findViewById(R.id.btnEvents).setOnClickListener(this);
+
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -66,6 +74,13 @@ public class UserActivity extends AppCompatActivity implements
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setScopes(gso.getScopeArray());
 
+
+
+        //Display Time and date
+        TextView mTextViewDateTime = (TextView) findViewById(R.id.textViewDateTime);
+        String currentDateTimeString = DateFormat.getDateInstance().format(new Date());
+        String happytourist = "Happy Tourist Reykjavík" + "\n" + currentDateTimeString;
+        mTextViewDateTime.setText(happytourist);
 
     }
 
@@ -175,15 +190,24 @@ public class UserActivity extends AppCompatActivity implements
         if (signedIn) {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out).setVisibility(View.VISIBLE);
-            findViewById(R.id.map).setVisibility(View.VISIBLE);
-            findViewById(R.id.myReview).setVisibility(View.VISIBLE);
+            findViewById(R.id.sign_out2).setVisibility(View.VISIBLE);
+            findViewById(R.id.sign_out3).setVisibility(View.VISIBLE);
+            findViewById(R.id.btnCurrency).setVisibility(View.VISIBLE);
+            findViewById(R.id.status).setVisibility(View.GONE);
+
+
         } else {
             mStatusTextView.setText(R.string.signed_out);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out).setVisibility(View.GONE);
-            findViewById(R.id.map).setVisibility(View.GONE);
-            findViewById(R.id.myReview).setVisibility(View.GONE);
+            findViewById(R.id.sign_out2).setVisibility(View.GONE);
+            findViewById(R.id.sign_out3).setVisibility(View.GONE);
+            findViewById(R.id.btnCurrency).setVisibility(View.GONE);
+            findViewById(R.id.status).setVisibility(View.GONE);
+
+
+
         }
     }
 
@@ -208,6 +232,22 @@ public class UserActivity extends AppCompatActivity implements
                 Intent myReviewIntent = new Intent(UserActivity.this, MyReviewsActivity.class);
                 myReviewIntent.putExtra("personId", personID);
                 startActivity(myReviewIntent);
+                break;
+            case R.id.btnInfo:
+                Intent infoIntent = new Intent(v.getContext(), InfoActivity.class);
+                startActivityForResult(infoIntent, 0);
+                break;
+            case R.id.btnWeather:
+                Intent weatherIntent = new Intent(v.getContext(), WeatherActivity.class);
+                startActivityForResult(weatherIntent,0);
+                break;
+            case R.id.btnCurrency:
+                Intent currencyIntent = new Intent(v.getContext(), CurrencyActivity.class);
+                startActivityForResult(currencyIntent,0);
+                break;
+            case R.id.btnEvents:
+                Intent eventsIntent = new Intent(v.getContext(), EventActivity.class);
+                startActivityForResult(eventsIntent,0);
                 break;
 
         }
