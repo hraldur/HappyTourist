@@ -132,7 +132,9 @@
             android:text="@string/currencyConverter"
             android:background="@drawable/currency_button"
             android:drawableLeft="@drawable/ic_attach_money_white_24dp"
-            style="@style/button_text"/>
+            style="@style/button_text"
+            android:visibility="gone"
+            tools:visibility="visible"/>
 
 
         <LinearLayout
