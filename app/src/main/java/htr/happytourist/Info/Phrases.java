@@ -5,30 +5,31 @@ package htr.happytourist.Info;
  */
 public class Phrases {
 
-    public String ENG;
-    public String ISL;
+    private String english;
+    private String icelandic;
 
-    public Phrases(String english, String icelandic){
-        ENG = english;
-        ISL = icelandic;
+    public Phrases() {
+
     }
 
-    public Phrases(){
+    public Phrases(String english, String icelandic) {
+        this.english = english;
+        this.icelandic = icelandic;
     }
 
-    public String getENG(){
-        return ENG;
+    public String getEnglish() {
+        return english;
     }
 
-    public String getISL(){
-        return ISL;
+    public void setEnglish(String english) {
+        this.english = english;
     }
 
-    public void setENG(String ENG){
-        this.ENG = ENG;
+    public String getIcelandic() {
+        return icelandic;
     }
 
-    public void setISL(String ISL){
-        this.ISL = ISL;
+    public void setIcelandic(String icelandic) {
+        this.icelandic = icelandic;
     }
 }

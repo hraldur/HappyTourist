@@ -5,30 +5,30 @@ package htr.happytourist.Info;
  */
 public class UsefulPhoneNumbers {
 
-    public String OWNER;
-    public String PHONENUMBER;
+    public String owner;
+    public String number;
 
-    public UsefulPhoneNumbers(String owner, String phonenumber){
-        OWNER = owner;
-        PHONENUMBER = phonenumber;
+    public UsefulPhoneNumbers() {
     }
 
-    public UsefulPhoneNumbers(){
+    public UsefulPhoneNumbers(String owner, String number) {
+        this.owner = owner;
+        this.number = number;
     }
 
-    public String getOWNER(){
-        return OWNER;
+    public String getOwner() {
+        return owner;
     }
 
-    public String getPHONENUMBER(){
-        return PHONENUMBER;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public void setOWNER(String OWNER){
-        this.OWNER = OWNER;
+    public String getNumber() {
+        return number;
     }
 
-    public void setPHONENUMBER(String PHONENUMBER){
-        this.PHONENUMBER = PHONENUMBER;
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

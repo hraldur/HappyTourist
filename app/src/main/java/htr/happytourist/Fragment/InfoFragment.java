@@ -1,9 +1,8 @@
 package htr.happytourist.Fragment;
 
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +10,15 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
-import htr.happytourist.Info.InfoDbSchema;
 import htr.happytourist.Info.Phrases;
-import htr.happytourist.Info.PhrasesList;
 import htr.happytourist.Info.UsefulInfoHelper;
 import htr.happytourist.Info.UsefulPhoneNumbers;
-import htr.happytourist.Info.UsefulPhoneNumbersList;
 import htr.happytourist.R;
 
 /**
@@ -41,6 +37,7 @@ public class InfoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -58,6 +55,12 @@ public class InfoFragment extends Fragment {
         //Phrases button
         mBtnPhrases = (Button) v.findViewById(R.id.btnPhrases);
 
+
+
+        Firebase.setAndroidContext(getContext());
+
+
+
         //Display phrases
         mBtnPhrases.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,11 +68,11 @@ public class InfoFragment extends Fragment {
 
                 //First remove all views that already are present in the mViewUsefulInfo view
                 mViewUsefulInfo.removeAllViews();
-
+ /*
                 PhrasesList phrasesList = new PhrasesList(getContext());
                 List<Phrases> listPhrases = phrasesList.getPhrases();
 
-                for(int i=0; i<listPhrases.size();i++){
+               for(int i=0; i<listPhrases.size();i++){
                     TableRow tr = new TableRow(v.getContext());
                     tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
 
@@ -82,7 +85,42 @@ public class InfoFragment extends Fragment {
                     tr.addView(icelandic);
 
                     mViewUsefulInfo.addView(tr);
-                }
+                }*/
+
+
+                Firebase phrasesRef = new Firebase("https://happytourist.firebaseio.com/usefulinfo/phrases/");
+                phrasesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for (DataSnapshot phrasesSnapshot : dataSnapshot.getChildren()) {
+
+                            System.out.println(phrasesSnapshot.getValue());
+                            Phrases phrases = phrasesSnapshot.getValue(Phrases.class);
+
+
+                            TableRow tr = new TableRow(getContext());
+                            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+                            TextView english = new TextView(getContext());
+                            english.setText(phrases.getEnglish());
+                            tr.addView(english);
+
+                            TextView icelandic = new TextView(getContext());
+                            icelandic.setText(phrases.getIcelandic());
+                            tr.addView(icelandic);
+
+                            mViewUsefulInfo.addView(tr);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                        System.out.println("The read failed: " + firebaseError.getMessage());
+                    }
+                });
+
             }
         });
 
@@ -95,7 +133,7 @@ public class InfoFragment extends Fragment {
 
                 //First remove all views that already are present in the mViewUsefulInfo view
                 mViewUsefulInfo.removeAllViews();
-
+/*
                 UsefulPhoneNumbersList usefulPhoneNumbersList = new UsefulPhoneNumbersList(getContext());
                 List<UsefulPhoneNumbers> listUsefulPhoneNumbers = usefulPhoneNumbersList.getUsefulPhoneNumbers();
 
@@ -113,6 +151,42 @@ public class InfoFragment extends Fragment {
 
                     mViewUsefulInfo.addView(tr);
                 }
+                */
+
+                Firebase phrasesRef = new Firebase("https://happytourist.firebaseio.com/usefulinfo/phoneNumbers");
+                phrasesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for (DataSnapshot phoneSnapshot : dataSnapshot.getChildren()) {
+
+                            System.out.println(phoneSnapshot.getValue());
+                            UsefulPhoneNumbers usefulPhoneNumbers = phoneSnapshot.getValue(UsefulPhoneNumbers.class);
+
+
+                            TableRow tr = new TableRow(getContext());
+                            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+                            TextView number = new TextView(getContext());
+                            number.setText(usefulPhoneNumbers.getNumber());
+                            tr.addView(number);
+
+                            TextView owner = new TextView(getContext());
+                            owner.setText(usefulPhoneNumbers.getOwner());
+                            tr.addView(owner);
+
+                            mViewUsefulInfo.addView(tr);
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(FirebaseError firebaseError) {
+                        System.out.println("The read failed: " + firebaseError.getMessage());
+                    }
+                });
+
+
             }
         });
 

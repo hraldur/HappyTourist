@@ -3,8 +3,6 @@ package htr.happytourist.Info;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
-import htr.happytourist.Fragment.InfoFragment;
-
 /**
  * Created by hlingunnlaugsdottir on 31/03/16.
  */
@@ -21,8 +19,8 @@ public class InfoCursorWrapper extends CursorWrapper {
 
         Phrases phrases = new Phrases();
 
-        phrases.setENG(eng);
-        phrases.setISL(isl);
+        phrases.setEnglish(eng);
+        phrases.setIcelandic(isl);
 
         return phrases;
     }
@@ -33,8 +31,8 @@ public class InfoCursorWrapper extends CursorWrapper {
 
         UsefulPhoneNumbers usefulPhoneNumbers = new UsefulPhoneNumbers();
 
-        usefulPhoneNumbers.setOWNER(owner);
-        usefulPhoneNumbers.setPHONENUMBER(phoneNumber);
+        usefulPhoneNumbers.setOwner(owner);
+        usefulPhoneNumbers.setNumber(phoneNumber);
 
         return usefulPhoneNumbers;
     }
