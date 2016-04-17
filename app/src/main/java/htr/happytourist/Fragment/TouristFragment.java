@@ -14,7 +14,7 @@ import htr.happytourist.CurrencyActivity;
 import htr.happytourist.EventActivity;
 import htr.happytourist.MapsActivity;
 import htr.happytourist.R;
-import htr.happytourist.ReviewActivity;
+import htr.happytourist.WriteReviewActivity;
 import htr.happytourist.UserActivity;
 
 
@@ -98,7 +98,7 @@ public class TouristFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ReviewActivity.class);
+                Intent intent = new Intent(v.getContext(), WriteReviewActivity.class);
                 startActivityForResult(intent, 0);
             }
         });

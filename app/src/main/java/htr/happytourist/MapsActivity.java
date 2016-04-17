@@ -17,6 +17,8 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 
+import java.util.List;
+
 
 public class MapsActivity extends AppCompatActivity {
     private static final String TAG = MapsActivity.class.getSimpleName();
@@ -31,6 +33,7 @@ public class MapsActivity extends AppCompatActivity {
     private String personName;
     private String personID;
     private String attractionId;
+    private String stringRating;
 
     private static final LatLngBounds BOUNDS_MOUNTAIN_VIEW = new LatLngBounds(
             new LatLng(64.1419422, -21.9268126), new LatLng(64.147610, -21.922090));
@@ -41,6 +44,7 @@ public class MapsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
         mName = (TextView) findViewById(R.id.name);
         mAddress = (TextView) findViewById(R.id.address);
         mPhone = (TextView) findViewById(R.id.phone);
@@ -49,6 +53,7 @@ public class MapsActivity extends AppCompatActivity {
 
         Button pickerButton = (Button) findViewById(R.id.pickerButton);
         Button writeReview = (Button) findViewById(R.id.writeReview);
+        Button reviews = (Button) findViewById(R.id.reviews);
 
         pickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,18 +76,29 @@ public class MapsActivity extends AppCompatActivity {
         writeReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //send information to ReviewActivity
-                Intent reviewIntent = new Intent(MapsActivity.this, ReviewActivity.class);
-                reviewIntent.putExtra("attractionName", name.toString());
-                reviewIntent.putExtra("attractionId", attractionId);
-                reviewIntent.putExtra("personName", personName);
-                reviewIntent.putExtra("personId", personID);
+                //send information to WriteReviewActivity
+                Intent writeReviewIntent = new Intent(MapsActivity.this, WriteReviewActivity.class);
+                writeReviewIntent.putExtra("attractionName", name.toString());
+                writeReviewIntent.putExtra("attractionId", attractionId);
+                writeReviewIntent.putExtra("personName", personName);
+                writeReviewIntent.putExtra("personId", personID);
+                writeReviewIntent.putExtra("attractionRating", stringRating);
 
-                startActivity(reviewIntent);
+                startActivity(writeReviewIntent);
             }
         });
 
 
+        reviews.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //send information to ReviewActivity
+                Intent reviewIntent = new Intent(MapsActivity.this, ReviewsActivity.class);
+                reviewIntent.putExtra("attractionId", attractionId);
+                startActivity(reviewIntent);
+            }
+        });
     }
 
 
@@ -103,6 +119,7 @@ public class MapsActivity extends AppCompatActivity {
             CharSequence number = place.getPhoneNumber();
             CharSequence attribution = place.getAttributions();
             attractionId = place.getId();
+            List<Integer> types = place.getPlaceTypes();
 
 
             //get information from UserActivity
@@ -113,7 +130,7 @@ public class MapsActivity extends AppCompatActivity {
 
             //set places rating
             float rating = place.getRating()*10;
-            String stringRating;
+
             if(rating == -10.0){
                 stringRating = " ";
             }

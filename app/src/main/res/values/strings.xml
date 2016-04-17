@@ -67,6 +67,8 @@
     <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_review">ReviewActivity</string>
+    <string name="title_activity_my_reviews">MyReviewsActivity</string>
+    <string name="title_activity_reviews">ReviewsActivity</string>
 
 </resources>
 

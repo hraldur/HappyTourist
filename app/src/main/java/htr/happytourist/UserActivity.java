@@ -47,6 +47,7 @@ public class UserActivity extends AppCompatActivity implements
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.map).setOnClickListener(this);
+        findViewById(R.id.myReview).setOnClickListener(this);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -175,12 +176,14 @@ public class UserActivity extends AppCompatActivity implements
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
             findViewById(R.id.sign_out).setVisibility(View.VISIBLE);
             findViewById(R.id.map).setVisibility(View.VISIBLE);
+            findViewById(R.id.myReview).setVisibility(View.VISIBLE);
         } else {
             mStatusTextView.setText(R.string.signed_out);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out).setVisibility(View.GONE);
             findViewById(R.id.map).setVisibility(View.GONE);
+            findViewById(R.id.myReview).setVisibility(View.GONE);
         }
     }
 
@@ -200,7 +203,11 @@ public class UserActivity extends AppCompatActivity implements
                 mapIntent.putExtra("personName", personName.toString());
                 mapIntent.putExtra("personID", personID);
                 startActivity(mapIntent);
-
+                break;
+            case R.id.myReview:
+                Intent myReviewIntent = new Intent(UserActivity.this, MyReviewsActivity.class);
+                myReviewIntent.putExtra("personId", personID);
+                startActivity(myReviewIntent);
                 break;
 
         }

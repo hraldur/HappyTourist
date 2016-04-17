@@ -64,8 +64,18 @@
             android:label="@string/title_activity_maps">
         </activity>
         <activity
-            android:name=".ReviewActivity"
+            android:name=".WriteReviewActivity"
             android:label="@string/title_activity_review"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".MyReviewsActivity"
+            android:label="@string/title_activity_my_reviews"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ReviewsActivity"
+            android:label="@string/title_activity_reviews"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

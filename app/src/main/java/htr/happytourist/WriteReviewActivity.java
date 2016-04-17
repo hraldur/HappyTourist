@@ -14,9 +14,12 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import htr.happytourist.Attractions.Reviews;
 
-public class ReviewActivity extends AppCompatActivity {
+public class WriteReviewActivity extends AppCompatActivity {
     private Button mSubmitReview;
     private EditText mReviewText;
     private TextView mTextUser;
@@ -27,12 +30,14 @@ public class ReviewActivity extends AppCompatActivity {
     private String personID;
     private String attractionID;
     private String comment;
+    private String attractionRating;
+    private String time;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review);
+        setContentView(R.layout.activity_write_review);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Firebase.setAndroidContext(this);
@@ -44,8 +49,11 @@ public class ReviewActivity extends AppCompatActivity {
         attractionName = mapsIntent.getStringExtra("attractionName");
         personID = mapsIntent.getStringExtra("personId");
         attractionID = mapsIntent.getStringExtra("attractionId");
+        attractionRating = mapsIntent.getStringExtra("attracyionRating");
 
-
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        time = sdf.format(cal.getTime());
 
         mTextUser = (TextView) findViewById(R.id.textUser);
         mTextAttraction = (TextView) findViewById(R.id.textAttraction);
@@ -63,9 +71,11 @@ public class ReviewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 comment = mReviewText.getText().toString();
                 Firebase ref = new Firebase("https://happytourist.firebaseio.com/");
-                Firebase reviewRef = ref.child("review").child(attractionName);
-                Reviews comments = new Reviews(comment, personName);
-                reviewRef.setValue(comments);
+                Firebase reviewAttraction = ref.child("review").child("attraction").child(attractionID).child(personID);
+                Firebase reviewUser = ref.child("review").child("user").child(personID).child(attractionID);
+                Reviews comments = new Reviews(attractionName, attractionRating, attractionID, comment, time, personName, personID);
+                reviewAttraction.setValue(comments);
+                reviewUser.setValue(comments);
 
                 ref.addValueEventListener(new ValueEventListener() {
                     @Override
