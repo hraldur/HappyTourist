@@ -44,35 +44,27 @@ public class MapsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
+        map();
         mName = (TextView) findViewById(R.id.name);
         mAddress = (TextView) findViewById(R.id.address);
         mPhone = (TextView) findViewById(R.id.phone);
         mAttribution = (TextView) findViewById(R.id.attributions);
         mRating = (TextView) findViewById(R.id.rating);
 
-        Button pickerButton = (Button) findViewById(R.id.pickerButton);
+        Button backToMap = (Button) findViewById(R.id.backToMap);
         Button writeReview = (Button) findViewById(R.id.writeReview);
         Button reviews = (Button) findViewById(R.id.reviews);
 
-        pickerButton.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        backToMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    PlacePicker.IntentBuilder intentBuilder =
-                            new PlacePicker.IntentBuilder();
-                    intentBuilder.setLatLngBounds(BOUNDS_MOUNTAIN_VIEW);
-                    Intent intent = intentBuilder.build(MapsActivity.this);
-                    startActivityForResult(intent, PLACE_PICKER_REQUEST);
-
-                } catch (GooglePlayServicesRepairableException
-                        | GooglePlayServicesNotAvailableException e) {
-                    e.printStackTrace();
-                }
+                map();
             }
         });
-
-
         writeReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,13 +88,29 @@ public class MapsActivity extends AppCompatActivity {
                 //send information to ReviewActivity
                 Intent reviewIntent = new Intent(MapsActivity.this, ReviewsActivity.class);
                 reviewIntent.putExtra("attractionId", attractionId);
+                reviewIntent.putExtra("attractionName", name);
+
                 startActivity(reviewIntent);
             }
         });
+
+
+
     }
 
+    public void map(){
+        try {
+            PlacePicker.IntentBuilder intentBuilder =
+                    new PlacePicker.IntentBuilder();
+            intentBuilder.setLatLngBounds(BOUNDS_MOUNTAIN_VIEW);
+            Intent intent = intentBuilder.build(MapsActivity.this);
+            startActivityForResult(intent, PLACE_PICKER_REQUEST);
 
-
+        } catch (GooglePlayServicesRepairableException
+                | GooglePlayServicesNotAvailableException e) {
+         e.printStackTrace();
+        }
+    }
     @Override
     protected void onActivityResult(int requestCode,
                                     int resultCode, Intent data) {
@@ -166,6 +174,16 @@ public class MapsActivity extends AppCompatActivity {
 
     }
 
+    //Override back button
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(MapsActivity.this, UserActivity.class);
+        startActivity(intent);
+        finish();
+        super.onBackPressed();
+
+    }
 
 }
 

@@ -1,5 +1,6 @@
 package htr.happytourist.Fragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -38,8 +39,14 @@ public class ReviewsFragment extends Fragment {
         View v =  inflater.inflate(R.layout.fragment_reviews, container, false);
         attractionReview = (TableLayout) v.findViewById(R.id.attractionReview);
 
-        //get attractionid
+        //get attractionid from MapsActivity
         String attractionId = getActivity().getIntent().getStringExtra("attractionId");
+        String attractionName = getActivity().getIntent().getStringExtra("attractionName");
+
+
+        //TextView attraction = (TextView) v.findViewById(R.id.attractionNames);
+        //attraction.setText(attractionName);
+
 
         Firebase.setAndroidContext(getContext());
         Firebase ref = new Firebase("https://happytourist.firebaseio.com/review/attraction/"+attractionId);
@@ -48,25 +55,40 @@ public class ReviewsFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
-                System.out.println("There are " + snapshot.getChildrenCount() + " blog posts");
+
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Reviews review = postSnapshot.getValue(Reviews.class);
-                    System.out.println(review.getComment() + " - " + review.getUsername());
-
+                    System.out.println(review.getComment() + " - " + review.getTime() + "-" + review.getUsername());
 
                     TableRow tr = new TableRow(getContext());
                     tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
 
-                    TextView attractionName = new TextView(getContext());
-                    attractionName.setText(review.getUsername());
-                    tr.addView(attractionName);
+                    TextView personName = new TextView(getContext());
+                    personName.setText(review.getUsername());
+                    personName.setTextSize(16);
+                    personName.setTypeface(null, Typeface.BOLD);
+                    tr.addView(personName);
+
+                    TableRow tr2 = new TableRow(getContext());
+                    tr2.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
+                    TextView time = new TextView(getContext());
+                    time.setText(review.getTime());
+                    time.setTextSize(8);
+                    tr2.addView(time);
+
+                    TableRow tr3 = new TableRow(getContext());
+                    tr3.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+
 
                     TextView comments = new TextView(getContext());
                     comments.setText(review.getComment());
-                    tr.addView(comments);
+                    tr3.addView(comments);
 
 
                     attractionReview.addView(tr);
+                    attractionReview.addView(tr2);
+                    attractionReview.addView(tr3);
                 }
 
             }
