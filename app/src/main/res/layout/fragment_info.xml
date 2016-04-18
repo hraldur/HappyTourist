@@ -3,25 +3,27 @@
              android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="@color/colorBackground"
              tools:context="htr.happytourist.Fragment.EventFragment">
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal|top">
+        android:weightSum="8"
+        android:orientation="vertical">
 
         <LinearLayout
             android:weightSum="3"
-            android:layout_weight="0.8"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_weight="1.2"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnPhrases"
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_margin="4dp"
                 android:text="@string/infoPhrases"
                 android:background="@drawable/main_buttons"
@@ -29,9 +31,9 @@
 
             <Button
                 android:id="@+id/btnUsefulPhoneNumbers"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_margin="4dp"
                 android:text="@string/infoUsefulPhoneNumbers"
                 android:background="@drawable/main_buttons"
@@ -54,7 +56,8 @@
                     android:id="@+id/viewUsefulInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"/>
+                    android:orientation="horizontal"
+                    android:padding="8dp"/>
 
             </HorizontalScrollView>
 

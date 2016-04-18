@@ -64,6 +64,7 @@
                 android:weightSum="2"
                 android:layout_weight="1"
                 android:layout_width="0dp"
+                android:layout_margin="4dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -72,7 +73,6 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="4dp"
                     android:text="@string/weatherForecast"
                     android:background="@drawable/main_buttons"
                     android:drawableTop="@drawable/ic_wb_sunny_white_24dp"
@@ -83,8 +83,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="4dp"
-                    android:text="@string/auroraForecast"
+                    android:text="@string/myReviews"
                     android:background="@drawable/info_button"
                     android:drawableTop="@drawable/ic_looks_white_24dp"
                     style="@style/button_text"/>

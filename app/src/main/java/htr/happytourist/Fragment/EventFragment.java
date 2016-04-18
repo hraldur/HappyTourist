@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 
-import htr.happytourist.ConcertActivity;
 import htr.happytourist.Events.Cinema;
 import htr.happytourist.Events.Concert;
 import htr.happytourist.R;
@@ -63,8 +62,6 @@ public class EventFragment extends Fragment {
         mBtnCinema.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(v.getContext(), CinemaActivity.class);
-                //startActivityForResult(intent, 0);
 
                 //First remove all views that already are present in the mViewEvents view
                 mViewEvents.removeAllViews();
@@ -124,8 +121,6 @@ public class EventFragment extends Fragment {
         mBtnConcerts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(v.getContext(), ConcertActivity.class);
-                //startActivityForResult(intent, 0);
 
                 //First remove all views that already are present in the mViewEvents view
                 mViewEvents.removeAllViews();
