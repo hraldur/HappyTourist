@@ -189,6 +189,8 @@ public class UserActivity extends AppCompatActivity implements
     private void updateUI(boolean signedIn) {
         if (signedIn) {
             findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+            findViewById(R.id.textViewFirst).setVisibility(View.GONE);
+
             findViewById(R.id.sign_out).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out2).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out3).setVisibility(View.VISIBLE);
@@ -200,6 +202,8 @@ public class UserActivity extends AppCompatActivity implements
             mStatusTextView.setText(R.string.signed_out);
 
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
+            findViewById(R.id.textViewFirst).setVisibility(View.VISIBLE);
+
             findViewById(R.id.sign_out).setVisibility(View.GONE);
             findViewById(R.id.sign_out2).setVisibility(View.GONE);
             findViewById(R.id.sign_out3).setVisibility(View.GONE);

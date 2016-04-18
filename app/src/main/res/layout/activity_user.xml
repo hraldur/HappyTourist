@@ -35,7 +35,17 @@
             android:visibility="visible"
             tools:visibility="gone" />
 
-
+    <TextView
+        android:id="@+id/textViewFirst"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_margin="4dp"
+        android:background="@drawable/happytourist_textview"
+        android:text="@string/welcome"
+        android:drawableBottom="@drawable/ic_loyalty_white_48dp"
+        style="@style/dateTime_text"
+        android:visibility="visible"
+        tools:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/sign_out"

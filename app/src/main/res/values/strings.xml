@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">HappyTourist</string>
     <string name="happyTourist">Happy Tourist Reykjavík </string>
+    <string name="welcome">Welcome to Happy Tourist Reykjavík </string>
 
     <!--Happy Tourist main activity-->
     <string name="weatherForecast">Weather</string>
