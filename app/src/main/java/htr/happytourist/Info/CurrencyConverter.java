@@ -16,6 +16,7 @@ public class CurrencyConverter {
         ISK, USD, GBP, EUR, CAD, DKK, NOK, SEK, CHF, JPY, XDR
     }
 
+    //Empty constructor
     public CurrencyConverter() {
     }
 

@@ -16,7 +16,6 @@ import org.json.JSONObject;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
-//import java.util.logging.Handler;
 import android.os.Handler;
 
 import htr.happytourist.R;
@@ -100,6 +99,7 @@ public class WeatherFragment extends Fragment {
                             "\n" + "Humidity: " + main.getString("humidity") + "%" +
                             "\n" + "Pressure: " + main.getString("pressure") + " hPa");
 
+            // Temperature is in Kelvin so K-273.15 = celsius
             currentTemperatureField.setText(
                     String.format("%.2f", main.getDouble("temp")-273.15)+ " ℃");
 

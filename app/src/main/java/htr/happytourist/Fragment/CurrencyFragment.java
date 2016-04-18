@@ -2,13 +2,19 @@ package htr.happytourist.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
-import android.view.*;
-import android.widget.*;
-
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 import htr.happytourist.Info.CurrencyConverter;
-import htr.happytourist.Info.CurrencyConverter.*;
+import htr.happytourist.Info.CurrencyConverter.Currency;
 import htr.happytourist.R;
 import htr.happytourist.Service.CurrencyConverterService;
 
@@ -21,8 +27,8 @@ public class CurrencyFragment extends Fragment {
     Button mBtnCurrency;
     Spinner mSpinnerCurrency;
 
+    // Required empty public constructor
     public CurrencyFragment() {
-        // Required empty public constructor
     }
 
 
@@ -60,8 +66,11 @@ public class CurrencyFragment extends Fragment {
 
                 //convert amount to selected currency
                 mCurrencyConverterService.calculateCurrency(mCurrencyConverter);
-                String name = Double.toString(mCurrencyConverter.getForeignValue());
-                mForeignValueView.setText(name);
+                Double foreignCurrency = mCurrencyConverter.getForeignValue();
+                DecimalFormat foreign = new DecimalFormat("#.##");
+                foreign.setRoundingMode(RoundingMode.CEILING);
+                String foreignValue = foreign.format(foreignCurrency);
+                mForeignValueView.setText(foreignValue);
 
             }
         });

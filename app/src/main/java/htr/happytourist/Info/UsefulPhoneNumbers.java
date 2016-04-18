@@ -8,6 +8,7 @@ public class UsefulPhoneNumbers {
     public String owner;
     public String number;
 
+    //Empty constructor
     public UsefulPhoneNumbers() {
     }
 

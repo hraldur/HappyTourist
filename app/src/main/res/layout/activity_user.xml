@@ -1,27 +1,30 @@
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/main_layout"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:weightSum="4"
-              tools:context=".legacy.MainActivity">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:fontFamily="ostrich-regular"
+    tools:context=".UserActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:text="@string/signed_out"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+    <TableLayout
+        android:weightSum="8"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
         android:orientation="vertical">
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/colorPrimary">
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
@@ -32,55 +35,149 @@
             android:visibility="visible"
             tools:visibility="gone" />
 
+    <TextView
+        android:id="@+id/textViewFirst"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_margin="4dp"
+        android:background="@drawable/happytourist_textview"
+        android:text="@string/welcome"
+        android:drawableBottom="@drawable/ic_loyalty_white_48dp"
+        style="@style/dateTime_text"
+        android:visibility="visible"
+        tools:visibility="gone" />
+
         <LinearLayout
             android:id="@+id/sign_out"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_weight="1.2"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:visibility="gone"
             tools:visibility="visible">
 
+
+            <Button
+                android:id="@+id/btnInfo"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/usefulInfo"
+                android:background="@drawable/info_button"
+                android:drawableLeft="@drawable/ic_info_white_24dp"
+                style="@style/button_text"/>
+
             <Button
                 android:id="@+id/sign_out_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/sign_out"
-                />
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/logout"
+                android:background="@drawable/login_button"
+                style="@style/button_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sign_out2"
+            android:weightSum="3"
+            android:layout_weight="3.8"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+            <TextView
+                android:id="@+id/textViewDateTime"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/happyTourist"
+                android:background="@drawable/happytourist_textview"
+                android:drawableBottom="@drawable/ic_loyalty_white_48dp"
+                style="@style/dateTime_text"/>
+
+            <LinearLayout
+                android:weightSum="2"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_margin="4dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnWeather"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="@string/weatherForecast"
+                    android:background="@drawable/main_buttons"
+                    android:drawableTop="@drawable/ic_wb_sunny_white_24dp"
+                    style="@style/button_text"/>
+
+                <Button
+                    android:id="@+id/myReview"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="@string/myReviews"
+                    android:background="@drawable/info_button"
+                    android:drawableTop="@drawable/ic_looks_white_24dp"
+                    style="@style/button_text"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCurrency"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:text="@string/currencyConverter"
+            android:background="@drawable/currency_button"
+            android:drawableLeft="@drawable/ic_attach_money_white_24dp"
+            style="@style/button_text"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+
+        <LinearLayout
+            android:id="@+id/sign_out3"
+            android:layout_weight="2"
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+
+            <Button
+                android:id="@+id/btnEvents"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/events"
+                android:background="@drawable/main_buttons"
+                android:drawableTop="@drawable/ic_event_white_24dp"
+                style="@style/button_text"/>
 
             <Button
                 android:id="@+id/map"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="map"
-                />
-            <Button
-                android:id="@+id/myReview"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="My Review"
-                />
-
-
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:text="@string/map"
+                android:background="@drawable/login_button"
+                android:drawableTop="@drawable/ic_near_me_white_24dp"
+                style="@style/button_text"/>
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:text="@string/signed_out"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:layout_below="@+id/sign_out"
-            android:layout_centerHorizontal="true"/>
-
-    </RelativeLayout>
-
-</LinearLayout>
+    </TableLayout>
+</FrameLayout>

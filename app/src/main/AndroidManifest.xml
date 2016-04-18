@@ -30,14 +30,8 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key"/>
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
 
-        <activity android:name=".TouristActivity">
+        <activity android:name=".UserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -45,10 +39,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".EventActivity"/>
-        <activity android:name=".ConcertActivity"/>
-        <activity android:name=".CinemaActivity"/>
         <activity android:name=".SportsActivity"/>
-        <activity android:name=".UserActivity"/>
         <activity android:name=".CurrencyActivity"/>
         <activity android:name=".InfoActivity"/>
 

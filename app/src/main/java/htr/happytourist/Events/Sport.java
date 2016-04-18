@@ -14,6 +14,7 @@ public class Sport {
         sportTime = time;
     }
 
+    //Empty constructor
     public Sport() {
     }
 

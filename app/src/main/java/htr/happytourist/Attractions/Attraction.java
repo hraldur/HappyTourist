@@ -5,14 +5,13 @@ package htr.happytourist.Attractions;
  */
 public class Attraction {
 
-    //private String mAttractionType;
     private String mAttractionName;
     private String mRating;
     private String mID;
 
+    //Empty constructor
     public Attraction() {
     }
-
 
     public String getAttractionName() {
         return mAttractionName;

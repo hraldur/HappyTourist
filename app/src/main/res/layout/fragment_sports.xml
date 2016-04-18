@@ -4,25 +4,27 @@
              android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="@color/colorBackground"
              tools:context="htr.happytourist.Fragment.SportsFragment">
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal|top">
+        android:weightSum="8"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:weightSum="3"
-            android:layout_weight="0.8"
-            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_weight="1.2"
+            android:layout_height="0dp"
             android:layout_width="wrap_content"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnFootball"
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_margin="4dp"
                 android:text="@string/sportsFootball"
                 android:background="@drawable/main_buttons"
@@ -31,8 +33,8 @@
             <Button
                 android:id="@+id/btnHandball"
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_margin="4dp"
                 android:text="@string/sportsHandball"
                 android:background="@drawable/main_buttons"
@@ -42,19 +44,22 @@
 
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="6.8"
+                    android:layout_height="0dp"
                     android:scrollbars="vertical">
 
             <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scrollbars="horizontal">
 
             <TableLayout
                 android:id="@+id/viewSportsEvents"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:stretchColumns="*"/>
 
             </HorizontalScrollView>
 

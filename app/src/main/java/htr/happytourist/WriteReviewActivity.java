@@ -9,10 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,6 +21,9 @@ public class WriteReviewActivity extends AppCompatActivity {
     private EditText mReviewText;
     private TextView mTextUser;
     private TextView mTextAttraction;
+    private TextView statusReview;
+
+
 
     private String personName;
     private String attractionName;
@@ -32,6 +32,7 @@ public class WriteReviewActivity extends AppCompatActivity {
     private String comment;
     private String attractionRating;
     private String time;
+
 
 
     @Override
@@ -43,6 +44,12 @@ public class WriteReviewActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
 
 
+        findViewById(R.id.statusReview).setVisibility(View.GONE);
+        findViewById(R.id.textUser).setVisibility(View.VISIBLE);
+        findViewById(R.id.textAttraction).setVisibility(View.VISIBLE);
+        findViewById(R.id.reviewText).setVisibility(View.VISIBLE);
+        findViewById(R.id.submitReview).setVisibility(View.VISIBLE);
+
         //get information from MapsActivity
         Intent mapsIntent=this.getIntent();
         personName = mapsIntent.getStringExtra("personName");
@@ -51,15 +58,13 @@ public class WriteReviewActivity extends AppCompatActivity {
         attractionID = mapsIntent.getStringExtra("attractionId");
         attractionRating = mapsIntent.getStringExtra("attracyionRating");
 
+
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, 1);
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy 'at' hh:mm");
         time = sdf.format(cal.getTime());
-        //Date date = new Date();
-        //System.out.println("DATE  " + date);
-//        currenTime = sdf.getTime();
-        //1time = date.toString();
 
+        statusReview = (TextView) findViewById(R.id.statusReview);
         mTextUser = (TextView) findViewById(R.id.textUser);
         mTextAttraction = (TextView) findViewById(R.id.textAttraction);
         mReviewText = (EditText) findViewById(R.id.reviewText);
@@ -68,7 +73,7 @@ public class WriteReviewActivity extends AppCompatActivity {
 
         mTextUser.setText(personName);
         mTextAttraction.setText(attractionName);
-
+        statusReview.setText("Your review for "+attractionName+" has been submitted");
 
         //Submit Review to database
         mSubmitReview.setOnClickListener(new View.OnClickListener() {
@@ -82,20 +87,16 @@ public class WriteReviewActivity extends AppCompatActivity {
                 reviewAttraction.setValue(comments);
                 reviewUser.setValue(comments);
 
-                ref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        System.out.println("There are " + snapshot.getChildrenCount() + " reviews");
-                        System.out.println(snapshot.getValue());
+                findViewById(R.id.statusReview).setVisibility(View.VISIBLE);
+                findViewById(R.id.textUser).setVisibility(View.GONE);
+                findViewById(R.id.textAttraction).setVisibility(View.GONE);
+                findViewById(R.id.reviewText).setVisibility(View.GONE);
+                findViewById(R.id.submitReview).setVisibility(View.GONE);
 
-                    }
 
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-                        System.out.println("The read failed: " + firebaseError.getMessage());
-                    }
-                });
             }
+
+
         });
 
 
