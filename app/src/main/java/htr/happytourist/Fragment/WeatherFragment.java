@@ -99,6 +99,7 @@ public class WeatherFragment extends Fragment {
                             "\n" + "Humidity: " + main.getString("humidity") + "%" +
                             "\n" + "Pressure: " + main.getString("pressure") + " hPa");
 
+            // Temperature is in Kelvin so K-273.15 = celsius
             currentTemperatureField.setText(
                     String.format("%.2f", main.getDouble("temp")-273.15)+ " ℃");
 
