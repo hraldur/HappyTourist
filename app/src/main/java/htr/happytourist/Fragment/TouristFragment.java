@@ -25,17 +25,14 @@ import htr.happytourist.WeatherActivity;
 
 public class TouristFragment extends Fragment {
 
-
     private Button mBtnCurrency;
     private Button mBtnLogin;
     private Button mBtnMap;
     private Button mBtnEvents;
 
-
     private Button mBtnInfo;
     private Button mBtnWeather;
     private TextView mTextViewDateTime;
-
 
 
     public TouristFragment() {
@@ -62,7 +59,7 @@ public class TouristFragment extends Fragment {
         mTextViewDateTime.setText(happytourist);
 
 
-        //See Events button click
+        //Events button click
         mBtnEvents = (Button) v.findViewById(R.id.btnEvents);
         mBtnEvents.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +69,7 @@ public class TouristFragment extends Fragment {
             }
         });
 
-        //See Currency converter button click
+        //Currency converter button click
         mBtnCurrency = (Button) v.findViewById(R.id.btnCurrency);
         mBtnCurrency.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +79,7 @@ public class TouristFragment extends Fragment {
             }
         });
 
+        //Useful info button click
         mBtnInfo = (Button) v.findViewById(R.id.btnInfo);
         mBtnInfo.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -92,6 +90,7 @@ public class TouristFragment extends Fragment {
         });
 
 
+        //Login button click
     mBtnLogin=(Button)v.findViewById(R.id.btnLogin);
     mBtnLogin.setOnClickListener(new View.OnClickListener()
 
@@ -106,6 +105,7 @@ public class TouristFragment extends Fragment {
     });
 
 
+        //Map button click
         mBtnMap = (Button) v.findViewById(R.id.btnMap);
         mBtnMap.setOnClickListener(new View.OnClickListener(){
 
@@ -117,6 +117,7 @@ public class TouristFragment extends Fragment {
         });
 
 
+        //Weather button click
         mBtnWeather = (Button) v.findViewById(R.id.btnWeather);
         mBtnWeather.setOnClickListener(new View.OnClickListener(){
             @Override

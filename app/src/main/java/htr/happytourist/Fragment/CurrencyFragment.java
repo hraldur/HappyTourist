@@ -27,8 +27,8 @@ public class CurrencyFragment extends Fragment {
     Button mBtnCurrency;
     Spinner mSpinnerCurrency;
 
+    // Required empty public constructor
     public CurrencyFragment() {
-        // Required empty public constructor
     }
 
 

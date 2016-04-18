@@ -27,9 +27,6 @@ public class MyReviewsFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +39,6 @@ public class MyReviewsFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_my_reviews, container, false);
-
-
 
         Firebase.setAndroidContext(getContext());
 

@@ -201,12 +201,6 @@ public class EventFragment extends Fragment {
                     eventDateName.setText(concertsArrayList.get(i).eventDateName);
                     tr.addView(eventDateName);
 
-                    /*
-                    TextView concertName = new TextView(v.getContext());
-                    concertName.setText(concertsArrayList.get(i).concertName);
-                    tr.addView(concertName);
-                       */
-
                     TextView concertDate = new TextView(v.getContext());
                     concertDate.setPadding(10, 5, 10, 5);
                     concertDate.setText(concertsArrayList.get(i).concertDate);
@@ -216,12 +210,6 @@ public class EventFragment extends Fragment {
                     concertTime.setPadding(10, 5, 10, 5);
                     concertTime.setText(concertsArrayList.get(i).concertTime);
                     tr.addView(concertTime);
-
-                    /*)
-                    TextView userGroupName = new TextView(v.getContext());
-                    userGroupName.setText(concertsArrayList.get(i).userGroupName);
-                    tr.addView(userGroupName);
-                    */
 
                     TextView concertHallName = new TextView(v.getContext());
                     concertHallName.setPadding(10, 5, 10, 5);

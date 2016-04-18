@@ -29,8 +29,9 @@ public class InfoFragment extends Fragment {
     Button mBtnUsefulPhoneNumbers;
     TableLayout mViewUsefulInfo;
 
+    // Required empty public constructor
     public InfoFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -51,6 +52,7 @@ public class InfoFragment extends Fragment {
         mBtnPhrases = (Button) v.findViewById(R.id.btnPhrases);
 
         Firebase.setAndroidContext(getContext());
+
         //Display phrases
         mBtnPhrases.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +66,7 @@ public class InfoFragment extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        //First add titles to the usefulInfo phrases table layout
+                        //Then add titles to the usefulInfo phrases table layout
                         TableRow titles = new TableRow(getContext());
 
                         TextView englishTitle = new TextView(getContext());
@@ -126,7 +128,7 @@ public class InfoFragment extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        //First add titles to usefulinfo phonenumbers table layout
+                        //Then add titles to usefulinfo phonenumbers table layout
                         TableRow titles = new TableRow(getContext());
 
                         TextView numberTitle = new TextView(getContext());

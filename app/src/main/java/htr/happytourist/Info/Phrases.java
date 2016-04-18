@@ -8,6 +8,7 @@ public class Phrases {
     private String english;
     private String icelandic;
 
+    //Empty constructor
     public Phrases() {
 
     }

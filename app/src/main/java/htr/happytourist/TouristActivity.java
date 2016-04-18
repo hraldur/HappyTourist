@@ -1,11 +1,8 @@
 package htr.happytourist;
 
-
         import android.os.StrictMode;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
-
-
         import htr.happytourist.Fragment.TouristFragment;
 
 

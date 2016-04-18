@@ -25,6 +25,7 @@ public class Football extends Sport {
         gameLocation = location;
     }
 
+    //Empty constructor
     public Football(){
 
     }

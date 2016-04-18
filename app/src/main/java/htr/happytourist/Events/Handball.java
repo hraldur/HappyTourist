@@ -22,6 +22,7 @@ public class Handball extends Sport {
         handballVenue = venue;
     }
 
+    //Empty constructor
     public Handball() {
 
     }

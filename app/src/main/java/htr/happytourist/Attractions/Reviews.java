@@ -10,6 +10,7 @@ public class Reviews extends Attraction {
     private String username;
     private String userID;
 
+    //Empty constructor
     public Reviews() {
     }
 

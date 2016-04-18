@@ -55,10 +55,6 @@ public class WriteReviewActivity extends AppCompatActivity {
         cal.add(Calendar.DATE, 1);
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yy 'at' hh:mm");
         time = sdf.format(cal.getTime());
-        //Date date = new Date();
-        //System.out.println("DATE  " + date);
-//        currenTime = sdf.getTime();
-        //1time = date.toString();
 
         mTextUser = (TextView) findViewById(R.id.textUser);
         mTextAttraction = (TextView) findViewById(R.id.textAttraction);
