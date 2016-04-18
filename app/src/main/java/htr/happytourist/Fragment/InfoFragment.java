@@ -1,5 +1,6 @@
 package htr.happytourist.Fragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -63,20 +64,36 @@ public class InfoFragment extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
+                        //First add titles to the usefulInfo phrases table layout
+                        TableRow titles = new TableRow(getContext());
+
+                        TextView englishTitle = new TextView(getContext());
+                        englishTitle.setText("English");
+                        englishTitle.setTypeface(null, Typeface.BOLD);
+                        titles.addView(englishTitle);
+
+                        TextView icelandicTitle = new TextView(getContext());
+                        icelandicTitle.setText("Icelandic");
+                        icelandicTitle.setTypeface(null, Typeface.BOLD);
+                        titles.addView(icelandicTitle);
+
+                        mViewUsefulInfo.addView(titles);
+
                         for (DataSnapshot phrasesSnapshot : dataSnapshot.getChildren()) {
 
                             System.out.println(phrasesSnapshot.getValue());
                             Phrases phrases = phrasesSnapshot.getValue(Phrases.class);
 
-
                             TableRow tr = new TableRow(getContext());
                             tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
 
                             TextView english = new TextView(getContext());
+                            english.setPadding(10, 5, 10, 5);
                             english.setText(phrases.getEnglish());
                             tr.addView(english);
 
                             TextView icelandic = new TextView(getContext());
+                            icelandic.setPadding(10, 5, 10, 5);
                             icelandic.setText(phrases.getIcelandic());
                             tr.addView(icelandic);
 
@@ -109,6 +126,21 @@ public class InfoFragment extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
+                        //First add titles to usefulinfo phonenumbers table layout
+                        TableRow titles = new TableRow(getContext());
+
+                        TextView numberTitle = new TextView(getContext());
+                        numberTitle.setText("Number");
+                        numberTitle.setTypeface(null, Typeface.BOLD);
+                        titles.addView(numberTitle);
+
+                        TextView ownerTitle = new TextView(getContext());
+                        ownerTitle.setText("Owner");
+                        ownerTitle.setTypeface(null, Typeface.BOLD);
+                        titles.addView(ownerTitle);
+
+                        mViewUsefulInfo.addView(titles);
+
                         for (DataSnapshot phoneSnapshot : dataSnapshot.getChildren()) {
 
                             System.out.println(phoneSnapshot.getValue());
@@ -118,10 +150,12 @@ public class InfoFragment extends Fragment {
                             tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
 
                             TextView number = new TextView(getContext());
+                            number.setPadding(10, 5, 10, 5);
                             number.setText(usefulPhoneNumbers.getNumber());
                             tr.addView(number);
 
                             TextView owner = new TextView(getContext());
+                            owner.setPadding(10, 5, 10, 5);
                             owner.setText(usefulPhoneNumbers.getOwner());
                             tr.addView(owner);
 
