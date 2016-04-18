@@ -5,7 +5,6 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 
 import htr.happytourist.Fragment.EventFragment;
-import htr.happytourist.Fragment.TouristFragment;
 
 /**
  * Created by hlingunnlaugsdottir on 20/03/16.
